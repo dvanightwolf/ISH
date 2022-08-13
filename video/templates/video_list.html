@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>الدروس والمقاطع</title>
+</head>
+<body>
+{% for video in videos %}
+    <div>
+    <div>
+        <img src="{{ video.post_photo.url }}" width="200px" height="200px">
+    </div>
+    <h1>{{ video.title }}</h1>
+    <p>
+        {% for tag in video.tags.all %}
+            {{ tag.name }},
+        {% endfor %}
+    </p>
+    <h4>
+        {{ video.description }}الشرح:
+    </h4>
+    <p>
+        {{ video.video_date }}التاريخ:
+    </p>
+    <p>
+        {{ video.video_time }}طول الدرس:
+    </p>
+    <p>
+        {{ video.size }}حجم الدرس:
+    </p>
+    <a>
+        <button type="button">مشاهدة او تحميل</button>
+    </a>
+    <p>
+        {{ video.created }}
+    </p>
+    </div>
+{% endfor %}
+</body>
+</html>
