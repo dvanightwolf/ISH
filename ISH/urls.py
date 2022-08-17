@@ -20,8 +20,10 @@ from django.urls import path, include
 from django.contrib import admin
 
 urlpatterns = [
+    path('', include('account.urls')),
     path('admin/', admin.site.urls),
     path('video_list/', include('video.urls')),
+
 
 ]
 

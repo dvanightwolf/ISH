@@ -1,9 +1,11 @@
 from django.contrib import admin
 from .models import Profile
 
-# Register your models here.
+
+# Register the profile model to the admin site
 
 
 @admin.register(Profile)
-class RegisterAdmin(admin.ModelAdmin):
-    list_display = ["id", "username", "email", "bio", "is_staff"]
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ["email", "bio", "photo", "gender", "date_of_birth", "phone_number", "is_staff"]
+
