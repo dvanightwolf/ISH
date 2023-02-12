@@ -1,0 +1,46 @@
+{% extends 'temp_home.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ video.title }}</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+    <div>
+    <div>
+        <img src="{{ video.post_photo.url }}" width="200px" height="200px">
+    </div>
+    <h1>{{ video.title }}</h1>
+    <p>
+        {% for tag in video.tags.all %}
+            {{ tag.name }},
+        {% endfor %}
+    </p>
+    <h4>
+        {{ video.description }}الشرح:
+    </h4>
+    <p>
+        {{ video.video_date }}التاريخ:
+    </p>
+    <p>
+        {{ video.video_time }}طول الدرس:
+    </p>
+    <p>
+        {{ video.size }}حجم الدرس:
+    </p>
+    <iframe width="100%" height="720px" src="{{ video.video_url }}" title="YouTube video player"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        <button type="button">مشاهدة او تحميل</button>
+    </a>
+    <p>
+        {{ video.created }}
+    </p>
+    </div>
+</body>
+</html>
+{% endblock content %}

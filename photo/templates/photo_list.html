@@ -1,0 +1,140 @@
+{% extends 'temp_home.html' %}
+{% block content %}
+    {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--<script src="https://kit.fontawesome.com/d26b7c3f6e.js" crossorigin="anonymous"></script>-->
+
+    <meta charset="UTF-8">
+        <title>الدروس والمقاطع</title>
+
+    <style>
+
+        h1{
+            font-family: doublebubble_shadowregular;
+                font-weight: normal;
+                font-style: normal;
+
+        }
+        .post:nth-child(even){
+            border: gold 2px solid;
+        }
+        .post:nth-child(odd){
+            border-right: #ff00ff 5px solid ;
+            border-bottom: magenta 5px solid;
+        }
+        .cat {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      text-align: center;
+      border-radius: 5px;
+      background-color: gold;
+      font-size: 16px;
+      color: #9B111E;
+            align-self: flex-end;
+      }
+        button:hover {
+      background-color: gold;
+      }
+        .artic{
+            height: 300px;
+            position: relative;
+            border-radius: 30px;
+        }
+        .homeAnc{
+    text-decoration: none;
+    color: black;
+}
+        .move{
+            height: 100%;
+            width: 106.3%;
+            background-color: black;
+            position: relative;
+            right: 3%;
+            border-radius: 30px;
+            opacity: 0;
+
+        }
+        .buttonHeader{
+            border-radius: 50px;
+            margin: auto;
+            width: 50px;
+        }
+        .homeHeading{
+    text-align: center;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+}
+        .articlesHeading{
+    position: relative;
+    top: -150px;
+
+}
+        .move:hover{
+            transition-duration:1s;
+            opacity: 0.6;
+        }
+
+
+      /* div:nth-child(even){
+        border-right: orange 5px solid;border-top: orange 5px solid;
+
+       }*/
+    </style>
+</head>
+<body>
+<form data-aos="fade-down" data-aos-duration="1000" action="{% url 'video:search' %}"
+      method="get" class="shadow-lg card box container"
+      style="padding: 25px; border: gold 2px solid;
+        border-radius: 30px;text-align: right; background-color: rgba(113, 6, 16, 0.97)">
+     <div>
+         <input list="b" name="search" type="search" id="search"  placeholder="ابحث" style="color: gold;border:gold 1px solid; border-radius: 50px;background-color:#570a12;text-align: right">
+             <datalist id="b">
+                 {% for photo in photos %}
+                     {% if photo.category == 'sheikh ahmad kftaro' %}
+                        <option value="{{ photo.title }}">
+                     {% endif %}
+                 {% endfor %}
+             </datalist>
+        <select  name="tag" id="tag" style="border:gold 1px solid; border-radius: 50px;color: gold; background-color: #570a12">
+            <option value="0">لا شيئ</option>
+            {% for tag in tags%}
+                <option value="{{ tag.id }}">{{ tag.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" style="border-radius: 20px;" class="btn p-2 font_color">بحث</button>
+     </div>
+</form>
+<div class="row" style="padding-left: 5%; padding-right: 5%">
+{% for photo in photos %}
+<br>
+    <br>
+    <div class="col-lg-6" style="min-height: 420px;text-align: right; padding-bottom: 1%">
+    <br>
+    <div class="card container post" data-aos="fade-up"
+     data-aos-duration="2000"
+         style="padding: 25px;border-radius:30px;box-shadow: rgba(180,162,50,0.9) 2px 4px 4px;height: 100%; background-color: rgba(113, 6, 16, 0.97) ">
+        <a href="{{ photo.get_photo_url }}" class="homeAnc">
+        <div>
+        <img src="{{ photo.photo.url }}" height="300px" width="100%">
+</div>
+            </a>
+        <br>
+    <a href="{{ photo.get_photo_url }}" style="align-self: center; color: gold"><h1>{{ photo.title }}</h1></a>
+    <br>
+        <button class="cat" style="border: #a18f34 1px solid; border-radius: 100px; position: relative; bottom: 9px ">{{ photo.category }}</button>
+    </div>
+    </div>
+{% endfor %}
+</div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+</body>
+</html>
+{% endblock content %}

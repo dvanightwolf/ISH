@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+<style type="text/css">
+	  html {
+	    font-size: 16px;
+	  }
+    .font_color {
+        color: gold;
+        border-color: gold;
+        background-color: rgba(113, 6, 16, 0.97);
+    }
+    .font_color:hover {
+        background-color: #c9ae31;
+        border-color: gold;
+        color: #9B111E;
+    }
+	form {
+        width: 100%;
+    }
+    .dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #570a12;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: gold;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+</head>
+<body>
+
+<div class="align-items-center p-2 px-md-2 mb-3 shadow-sm" style="width: 100%; background-color: rgba(113, 6, 16, 0.97)">
+  <nav class="my-2 my-md-0 mr-md-3" style="background-color: rgba(113, 6, 16, 0.97)" >
+  	{% if request.user.is_authenticated %}
+  <a class="btn p-2 font_color" href="{% url 'home' %}">الصفحة الرئيسية</a>
+        <div class="dropdown">
+  <a class="btn p-2 font_color" href="{% url 'video:video_list' %}">دروس التفسير</a>
+  <div class="dropdown-content" style="text-align: right">
+    <a href="#">سورة البقرة</a>
+    <a href="#">سورة آل عمران</a>
+    <a href="#">المزيد</a>
+  </div>
+</div>
+  <a class="btn p-2 font_color" href="">دروس السيرة</a>
+
+       <div class="dropdown">
+  <a class="btn p-2 font_color" href="">دروس منوعة</a>
+  <div class="dropdown-content" style="text-align: right">
+    <a href="#">مقابلات</a>
+    <a href="#">زيارات</a>
+    <a href="#">المزيد</a>
+  </div>
+</div>
+     <div class="dropdown">
+  <a class="btn p-2 font_color" href="{% url 'audio:audio_list' %}">الدروس الصوتية</a>
+  <div class="dropdown-content" style="text-align: right">
+    <a href="#">تفسير</a>
+    <a href="#">سيرة</a>
+    <a href="#">المزيد</a>
+  </div>
+</div>
+
+<a class="btn p-2 font_color" href="{% url 'photo:photo_list' %}">صور سماحته</a>
+
+<div class="dropdown">
+<a class="btn p-2 font_color" href="">مشايخ جامع أبي النور</a>
+    <div class="dropdown-content" style="text-align: right; min-width: 190px">
+    <a href="#">الشيخ غسان جبان</a>
+    <a href="#">الشيخ محمد خير الشعال</a>
+    <a href="#">المزيد</a>
+  </div>
+</div>
+
+	    <a class="btn p-2 font_color" href="{% url 'account:logout' %}" style="float:right;">تسجيل الخروج</a>
+	{% else %}
+  <a class="btn p-2 font_color" href="{% url 'home' %}">الصفحة الرئيسية</a>
+        <div class="dropdown">
+  <a class="btn p-2 font_color" href="{% url 'video:video_list' %}">دروس التفسير</a>
+  <div class="dropdown-content" style="text-align: right">
+    <a href="#">سورة البقرة</a>
+    <a href="#">سورة آل عمران</a>
+    <a href="#">المزيد</a>
+  </div>
+</div>
+  <a class="btn p-2 font_color" href="">دروس السيرة</a>
+
+       <div class="dropdown">
+  <a class="btn p-2 font_color" href="">دروس منوعة</a>
+  <div class="dropdown-content" style="text-align: right">
+    <a href="#">مقابلات</a>
+    <a href="#">زيارات</a>
+    <a href="#">المزيد</a>
+  </div>
+</div>
+     <div class="dropdown">
+  <a class="btn p-2 font_color" href="{% url 'audio:audio_list' %}">الدروس الصوتية</a>
+  <div class="dropdown-content" style="text-align: right">
+    <a href="#">تفسير</a>
+    <a href="#">سيرة</a>
+    <a href="#">المزيد</a>
+  </div>
+</div>
+
+<a class="btn p-2 font_color" href="{% url 'photo:photo_list' %}">صور سماحته</a>
+
+<div class="dropdown">
+<a class="btn p-2 font_color" href="">مشايخ جامع أبي النور</a>
+    <div class="dropdown-content" style="text-align: right; min-width: 190px">
+    <a href="#">الشيخ غسان جبان</a>
+    <a href="#">الشيخ محمد خير الشعال</a>
+    <a href="#">المزيد</a>
+  </div>
+</div>
+	    <a class="btn p-2 font_color" href="{% url 'account:login' %}" style="float:right;">تسجيل الدخول</a>
+	    <a class="btn p-2 font_color" href="{% url 'account:register' %}" style="float: right;align-self: end">إنشاء حساب</a>
+	{% endif %}
+
+  </nav>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends 'temp_home.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ photo.title }}</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+    <div>
+    <div>
+        <img src="{{ photo.photo.url }}" width="200px" height="200px">
+    </div>
+    <h1>{{ photo.title }}</h1>
+    <p>
+        {% for tag in photo.tags.all %}
+            {{ tag.name }},
+        {% endfor %}
+    </p>
+    <h4>
+        {{ photo.description }}الشرح:
+    </h4>
+    <p>
+        {{ video.created }}
+    </p>
+    </div>
+</body>
+</html>
+{% endblock content %}
