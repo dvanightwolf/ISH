@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'photo.apps.PhotoConfig',
     'audio.apps.AudioConfig',
     'django_cleanup.apps.CleanupConfig',
-    'taggit',
 ]
 
 MIDDLEWARE = [
