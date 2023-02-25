@@ -1,9 +1,9 @@
 import requests
 from apscheduler.schedulers.background import BackgroundScheduler
-from video.models import Video
+from video.models import Video, VideoTag
 from .models import Category
 from django.utils.text import slugify
-from taggit.models import Tag
+from .models import Tag
 from django.shortcuts import render
 
 
@@ -37,12 +37,11 @@ def youtube_api():
             print(video.tags)"""
     video = Video.objects.create(video_id="video_id", title="title", thumbnail="https://thumbnail",
                                  category=Category.objects.first(), description="description",
-                                 video_date="2021-02-02", slug=slugify("title"),
-                                 tags=Tag.objects.filter(name="asd"))
+                                 video_date="2021-02-02", slug=slugify("title"),)
+    tag = Tag.objects.create(name="asdasd")
+    VideoTag.objects.create(tag=tag, video=video)
 
-    video.save()
-
-    print(Video.objects.first().tags)
+    print(VideoTag.objects.first().tag.name)
 
 
 def scheduler():

@@ -25,6 +25,11 @@
             border-right: #ff00ff 5px solid ;
             border-bottom: magenta 5px solid;
         }
+        body{
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
         .cat {
       width: available;
       padding: 10px;
@@ -39,41 +44,11 @@
         button:hover {
       background-color: gold;
       }
-        .artic{
-            height: 300px;
-            position: relative;
-            border-radius: 30px;
-        }
         .homeAnc{
     text-decoration: none;
     color: black;
 }
-        .move{
-            height: 100%;
-            width: 106.3%;
-            background-color: black;
-            position: relative;
-            right: 3%;
-            border-radius: 30px;
-            opacity: 0;
 
-        }
-        .buttonHeader{
-            border-radius: 50px;
-            margin: auto;
-            width: 50px;
-        }
-        .homeHeading{
-    text-align: center;
-    font-size: 24px;
-    text-decoration: none;
-    color: black;
-}
-        .articlesHeading{
-    position: relative;
-    top: -150px;
-
-}
         .video{
             box-shadow: rgba(28,28,28,0.62) 10px 20px 20px;
             height:100%;
@@ -93,7 +68,6 @@
         .homeAnc:checked .video{
             box-shadow: #570a12 1px 1px 1px;
         }
-
     </style>
 </head>
 <body>
@@ -102,7 +76,7 @@
       style="padding: 25px; border: gold 2px solid;box-shadow: rgba(28,28,28,0.62) 10px 20px 20px;
         border-radius: 30px;text-align: right; background-color: rgba(113, 6, 16, 0.97)">
      <div>
-         <input list="b" name="search" type="search" id="search"  placeholder="ابحث" style="box-shadow: rgba(28,28,28,0.62) 5px 10px 10px;color: gold;border:gold 1px solid; border-radius: 50px;background-color:#570a12;text-align: right">
+         <input list="b" name="search" type="search" id="search"  placeholder="ابحث" style="color: gold;border:gold 1px solid; border-radius: 50px;background-color:#570a12;text-align: right">
              <datalist id="b">
                  {% for video in videos %}
                      {% if video.category == 'sheikh ahmad kftaro' %}
@@ -110,13 +84,13 @@
                      {% endif %}
                  {% endfor %}
              </datalist>
-        <select  name="tag" id="tag" style="box-shadow: rgba(28,28,28,0.62) 5px 10px 10px;border:gold 1px solid; border-radius: 50px;color: gold; background-color: #570a12">
+        <select  name="tag" id="tag" style="border:gold 1px solid; border-radius: 50px;color: gold; background-color: #570a12">
             <option value="0">لا شيئ</option>
             {% for tag in tags%}
                 <option value="{{ tag.id }}">{{ tag.name }}</option>
             {% endfor %}
         </select>
-        <button type="submit" id="s" style="border-radius: 20px;box-shadow: rgba(28,28,28,0.62) 5px 10px 10px;" class="btn p-2 font_color">بحث</button>
+        <button type="submit" id="s" style="border-radius: 20px;" class="btn p-2 font_color">بحث</button>
      </div>
 </form>
 <div class="row" style="padding-left: 5%; padding-right: 5%">
@@ -130,11 +104,11 @@
          style="padding: 25px;transition-duration:500ms;border-bottom-right-radius:90px;border-top-left-radius:90px; background-color: rgba(113, 6, 16, 0.97) ">
         <a href="{{ video.get_video_url }}" class="homeAnc">
         <div>
-            <img class="homeAnc " src="{{ video.thumbnail }}" width="100%" height="300px" style="box-shadow: rgba(28,28,28,0.62) 7px 14px 14px;border-radius: 2%;border-top-left-radius:70px;">
+            <img class="homeAnc " src="{{ video.thumbnail }}" width="100%" height="300px" style="border-radius: 2%;border-top-left-radius:70px;">
         </div>
             </a>
         <br>
-    <a href="{{ video.get_video_url }}" style="align-self: center; color: gold"><h1>{{ video.title }}</h1></a>
+    <a href="{{ video.get_video_url }}" style="text-decoration: none;align-self: center; color: gold"><h1>{{ video.title }}</h1></a>
     <br>
     <h4>
         {% for tag in video.tags.all %}

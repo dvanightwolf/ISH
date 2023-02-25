@@ -5,7 +5,7 @@ from django.db import models
 class Category(models.Model):
     """A model that represents a category."""
     # Category name
-    name = models.CharField(max_length=500)
+    name = models.CharField(max_length=500, unique=True)
     # A field to make SEO friendly URLs
     slug = models.SlugField(max_length=1000)
 
@@ -17,7 +17,7 @@ class Category(models.Model):
 class Tag(models.Model):
     """A model that represents a Tag."""
     # Tag name
-    name = models.CharField(max_length=500)
+    name = models.CharField(max_length=500, unique=True)
     # A field to make SEO friendly URLs
     slug = models.SlugField(max_length=1000)
 
