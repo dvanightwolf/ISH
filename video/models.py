@@ -28,5 +28,8 @@ class VideoTag(models.Model):
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE, blank=False)
     video = models.ForeignKey(Video, on_delete=models.CASCADE, blank=False)
 
+    def get_tag_url(self):
+        return reverse('video:video_list', args=[self.tag.name])
+
     def __str__(self):
         return self.tag.name + self.video.title

@@ -47,28 +47,6 @@
     </style>
 </head>
 <body>
-<form data-aos="fade-down" data-aos-duration="1000" action="{% url 'video:search' %}"
-      method="get" class="shadow-lg card box container"
-      style="padding: 25px; border: gold 2px solid;
-        border-radius: 30px;text-align: right; background-color: rgba(113, 6, 16, 0.97)">
-     <div>
-         <input list="b" name="search" type="search" id="search"  placeholder="ابحث" style="color: gold;border:gold 1px solid; border-radius: 50px;background-color:#570a12;text-align: right">
-             <datalist id="b">
-                 {% for audio in audios %}
-                     {% if audio.category == 'sheikh ahmad kftaro' %}
-                        <option value="{{ audio.title }}">
-                     {% endif %}
-                 {% endfor %}
-             </datalist>
-        <select  name="tag" id="tag" style="border:gold 1px solid; border-radius: 50px;color: gold; background-color: #570a12">
-            <option value="0">لا شيئ</option>
-            {% for tag in tags %}
-                <option value="{{ tag.id }}">{{ tag.tag.name }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit" style="border-radius: 20px;" class="btn p-2 font_color">بحث</button>
-     </div>
-</form>
 <div class="row" style="padding-left: 5%; padding-right: 5%">
 {% for audio in audios %}
 <br>

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Photo
 from django.db.models import Q
-from taggit.models import Tag
+from generic.models import Tag
 
 # Create your views here.
 

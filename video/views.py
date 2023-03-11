@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Video, VideoTag
 from django.db.models import Q
-import requests
 
 
 # Create your views here.
@@ -9,7 +8,6 @@ import requests
 
 def search(request):
     results = []
-    video_list = Video.objects.all().order_by('-id')
     tags = VideoTag.objects.all()
     tag = VideoTag()
     query = None
@@ -19,7 +17,7 @@ def search(request):
         if tag:
             tag = VideoTag.objects.filter(pk=tag_id)
         if query != '':
-            if Video.objects.filter(Q(tags__name=query)):
+            if Video.objects.filter(Q(videotag__tag__name=query)):
                 results = Video.objects.filter(Q(tags__name=query))
             else:
                 results = Video.objects.filter(Q(title__icontains=query) |
@@ -28,15 +26,15 @@ def search(request):
             results = Video.objects.all()
 
         if tag_id != '0':
-            results = results.filter(Q(tags__name=tag[0].name))
+            results = results.filter(Q(videotag__tag__name=tag[0].name))
 
     return render(request, 'video_list.html', {'videos': results, 'tags': tags})
 
 
 def video_list(request):
-    videos = Video.objects.filter(is_active=True)
+    videos = Video.objects.all()
     tags = VideoTag.objects.all()
-    context = {'videos': videos, 'tags':tags}
+    context = {'videos': videos, 'tags': tags}
     return render(request, 'video_list.html', context)
 
 

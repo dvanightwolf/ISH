@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/ast/bootstrap/bootstrap-4.4.1.css">
+     <link rel="stylesheet" href="/ast/bootstrap/boxicons.min.css">
 <style type="text/css">
 	  html {
 	    font-size: 16px;
@@ -36,7 +42,10 @@
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
-
+input::placeholder{
+    color: gold;
+    opacity: 0.5;
+}
 .dropdown-content a {
   color: gold;
   padding: 12px 16px;
@@ -52,56 +61,64 @@
 </style>
 </head>
 <body>
-
 <div class="align-items-center p-2 px-md-2 mb-3" style="box-shadow: rgba(28,28,28,0.62) 2px 5px 5px;width: 100%; background-color: rgba(113, 6, 16, 0.97)">
   <nav class="my-2 my-md-0 mr-md-3" style="background-color: rgba(113, 6, 16, 0.97);" >
+  <div class="container-fluid">
+  <div class="row">
+<div class="col-12 col-md-1">
 
-  <a class="btn p-2 font_color" href="{% url 'home' %}">الصفحة الرئيسية</a>
+  <a class="navbar-brand" style="color: gold; text-decoration: none" href="{% url 'home' %}">ISH</a>
+</div>
+  <div class="col-md-4">
         <div class="dropdown">
-  <a class="btn p-2 font_color" href="{% url 'video:video_list' %}">دروس التفسير</a>
+  <a class="btn p-2 font_color" href="{% url 'video:video_list' %}">الشيخ أحمد كفتارو</a>
   <div class="dropdown-content" style="text-align: right">
-    <a href="#">سورة البقرة</a>
-    <a href="#">سورة آل عمران</a>
+    <a href="#">دروس التفسير</a>
+    <a href="#">دروس السيرة</a>
+      <a href="{% url 'audio:audio_list' %}">الدروس الصوتية</a>
+      <a href="{% url 'photo:photo_list' %}">صور سماحته</a>
     <a href="#">المزيد</a>
   </div>
 </div>
-  <a class="btn p-2 font_color" href="">دروس السيرة</a>
+  <a class="btn p-2 font_color" href="">مشايخ جامع أبو النور</a>
 
-       <div class="dropdown">
-  <a class="btn p-2 font_color" href="">دروس منوعة</a>
-  <div class="dropdown-content" style="text-align: right">
-    <a href="#">مقابلات</a>
-    <a href="#">زيارات</a>
-    <a href="#">المزيد</a>
-  </div>
-</div>
-     <div class="dropdown">
-  <a class="btn p-2 font_color" href="{% url 'audio:audio_list' %}">الدروس الصوتية</a>
-  <div class="dropdown-content" style="text-align: right">
-    <a href="#">تفسير</a>
-    <a href="#">سيرة</a>
-    <a href="#">المزيد</a>
-  </div>
-</div>
 
-<a class="btn p-2 font_color" href="{% url 'photo:photo_list' %}">صور سماحته</a>
-
-<div class="dropdown">
-<a class="btn p-2 font_color" href="" >مشايخ جامع أبي النور</a>
-    <div class="dropdown-content" style="text-align: right; min-width: 190px">
-    <a href="#">الشيخ غسان جبان</a>
-    <a href="#">الشيخ محمد خير الشعال</a>
-    <a href="#">المزيد</a>
   </div>
-</div>
+  <div class="col-12 col-md-4">
+  <form action="{% url 'video:search' %}" method="get" style="background-color: rgba(113, 6, 16, 0.97)">
+                <button type="submit" id="s" class="btn font_color" style="float: right;height: 2.5em; border-bottom-left-radius: 0px; border-top-left-radius: 0px;" ><i class="bx bx-search"></i></button>
+        <select  name="tag" id="tag" style="float: right; height: 2.5em;width: 18%; border-top:gold 1px solid; border-bottom:gold 1px solid; color: gold; background-color: #570a12">
+            <option value="0">لا شيئ</option>
+            {% for tag in tags %}
+                <option value="{{ tag.tag.id }}">{{ tag.tag.name }}</option>
+            {% endfor %}
+        </select>
+      <input list="b" name="search" type="search" id="search"  placeholder="ابحث"
+                style="float: right;color: gold;border:gold 1px solid;width: 70%;height: 2.5em;border-bottom-left-radius: 5px;
+                border-top-left-radius: 5px;background-color:#570a12;margin-right: 0px; text-align: right">
+
+             <datalist id="b">
+                 {% for video in videos %}
+                     {% if video.category == 'sheikh ahmad kftaro' %}
+                        <option value="{{ video.title }}">
+                     {% endif %}
+                 {% endfor %}
+             </datalist>
+
+</form>
+  </div>
+  <div class="col-12 col-md-3">
 {% if request.user.is_authenticated %}
-	    <a class="btn p-2 font_color" href="{% url 'account:logout' %}" style="float:right;">تسجيل الخروج</a>
+	    <a class="btn p-2 font_color" href="{% url 'account:logout' %}">تسجيل الخروج</a>
 	{% else %}
-    	    <a class="btn p-2 font_color" href="{% url 'account:login' %}" style="float:right;">تسجيل الدخول</a>
-	    <a class="btn p-2 font_color" href="{% url 'account:register' %}" style="float:right;">إنشاء حساب</a>
+    	    <a class="btn p-2 font_color" href="{% url 'account:login' %}">تسجيل الدخول</a>
+	    <a class="btn p-2 font_color" href="{% url 'account:register' %}">إنشاء حساب</a>
 	{% endif %}
-
+  </div>
+</div>
+  </div>
   </nav>
 </div>
+
 </body>
 </html>
