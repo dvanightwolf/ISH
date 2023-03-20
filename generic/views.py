@@ -1,15 +1,23 @@
 import requests
 from apscheduler.schedulers.background import BackgroundScheduler
-from scipy.constants import slug
-
+from audio.models import Audio
 from video.models import Video, VideoTag
+from photo.models import Photo
 from .models import Category
-from django.utils.text import slugify
 from .models import Tag, Category, Channel
 from django.shortcuts import render
 
 
 # Create your views here.
+def slugify(str):
+    str = str.replace(" ", "-")
+    str = str.replace(",", "-")
+    str = str.replace("(", "-")
+    str = str.replace(")", "")
+    str = str.replace("؟", "")
+    return str
+
+
 def playlists():
     url = f"https://www.googleapis.com/youtube/v3/playlists?" \
           f"key=AIzaSyC6oTBsOzfiJ5zcue5PTb8VJZvgT_Wd_KU&channelId={Channel.objects.first().ch_id}&part=snippet"
@@ -24,7 +32,7 @@ def playlists():
                 if not Category.objects.filter(cat_id=cat["id"]):
                     Category.objects.create(name=cat["snippet"]["title"],
                                             cat_id=cat["id"],
-                                            slug=slugify(cat["snippet"]["title"]))
+                                            slug=slugify(cat["snippet"]["title"]), cat_type='Video')
                 new_categories.append(cat["id"])
 
             page_token = response.json()["nextPageToken"]
@@ -89,9 +97,11 @@ def youtube_video_details():
                 for thumbnail in video["snippet"]["thumbnails"]:
                     thumbnail_url = video["snippet"]["thumbnails"][thumbnail]["url"]
                 if not Video.objects.filter(video_id=video_id):
-                    new_video = Video.objects.create(title=video["snippet"]["title"], slug=slugify(video["snippet"]["title"]),
+                    new_video = Video.objects.create(title=video["snippet"]["title"],
+                                                     slug=slugify(video["snippet"]["title"]),
                                                      thumbnail=thumbnail_url, category=category,
-                                                     description=video["snippet"]["description"], video_id=video_id,
+                                                     description=video["snippet"]["description"],
+                                                     video_id=video_id,
                                                      video_date="2002-02-02",)
                     new_video_list.append(new_video.video_id)
                     new_video.save()
@@ -124,3 +134,29 @@ def scheduler():
     sch = BackgroundScheduler()
     sch.add_job(youtube_api, 'interval', hours=12)
     sch.start()
+
+
+def filtered_list(request, category):
+    cat = Category.objects.filter(name=category)[0]
+    categories = Category.objects.all()
+    if cat.cat_type == "Video":
+        videos = Video.objects.filter(category__name=category)
+        context = {"videos": videos, 'categories': categories}
+        return render(request, "video_list.html", context)
+    if cat.cat_type == "Photo":
+        photos = Photo.objects.filter(category__name=category)
+        context = {"photos": photos, 'categories': categories}
+        return render(request, "photo_list.html", context)
+    if cat.cat_type == "Audio":
+        audios = Audio.objects.filter(category__name=category)
+        context = {"audios": audios, 'categories': categories}
+        return render(request, "audio_list.html", context)
+    context = {'categories': categories}
+    return render(request, "temp_home.html", context)
+
+
+def base(request):
+    categories = Category.objects.all()
+    tags = Tag.objects.all()
+    context = {'categories': categories, 'tags': tags}
+    return render(request, "temp_home.html", context)

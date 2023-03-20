@@ -10,3 +10,4 @@ class GenericConfig(AppConfig):
     def ready(self):
         from generic.views import scheduler
         scheduler()
+

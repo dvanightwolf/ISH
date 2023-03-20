@@ -18,14 +18,16 @@ from django.urls import path, include
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from generic.views import base
 
 urlpatterns = [
+    path('', base, name="home"),
     path('admin/', admin.site.urls),
     path('account/', include("account.urls")),
     path('videos/', include("video.urls")),
     path('audio/', include("audio.urls")),
     path('photos/', include("photo.urls")),
-    path('', TemplateView.as_view(template_name="temp_home.html"), name="home"),
+    path('generic/', include("generic.urls")),
 
 ]
 

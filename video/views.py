@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Video, VideoTag
+from generic.models import Category
 from django.db.models import Q
 
 
@@ -27,18 +28,21 @@ def search(request):
 
         if tag_id != '0':
             results = results.filter(Q(videotag__tag__name=tag[0].name))
-
-    return render(request, 'video_list.html', {'videos': results, 'tags': tags})
+    categories = Category.objects.all()
+    context = {"videos": results, 'categories': categories, 'tags': tags}
+    return render(request, 'video_list.html', context)
 
 
 def video_list(request):
     videos = Video.objects.all()
     tags = VideoTag.objects.all()
-    context = {'videos': videos, 'tags': tags}
+    categories = Category.objects.all()
+    context = {'videos': videos, 'tags': tags, 'categories': categories}
     return render(request, 'video_list.html', context)
 
 
 def video_details(request, v_id):
     video = Video.objects.filter(pk=v_id)[0]
-    context = {"video": video}
+    categories = Category.objects.all()
+    context = {"video": video, 'categories': categories}
     return render(request, "video_details.html", context)
