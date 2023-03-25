@@ -4,13 +4,13 @@ from django.db import models
 # Create your models here.
 class Category(models.Model):
     """A model that represents a category."""
-    choices = (('Video', 'Video'), ('Photo', 'Photo'), ('Audio', 'Audio'))
+    choices = (('YouTube', 'YouTube'), ('Other', 'Other'))
     # Category name
     name = models.CharField(max_length=500)
     # Category ID.
     cat_id = models.CharField(max_length=1000, unique=True)
     # Category type.
-    cat_type = models.CharField(max_length=100, blank=False, choices=choices)
+    cat_type = models.CharField(max_length=100, blank=False, choices=choices, default="Other")
     # A field to make SEO friendly URLs
     slug = models.SlugField(max_length=1000)
 

@@ -32,7 +32,7 @@ def playlists():
                 if not Category.objects.filter(cat_id=cat["id"]):
                     Category.objects.create(name=cat["snippet"]["title"],
                                             cat_id=cat["id"],
-                                            slug=slugify(cat["snippet"]["title"]), cat_type='Video')
+                                            slug=slugify(cat["snippet"]["title"]), cat_type='YouTube')
                 new_categories.append(cat["id"])
 
             page_token = response.json()["nextPageToken"]
@@ -47,11 +47,11 @@ def playlists():
             if not Category.objects.filter(cat_id=cat["id"]):
                 Category.objects.create(name=cat["snippet"]["title"],
                                         cat_id=cat["id"],
-                                        slug=slugify(cat["snippet"]["title"]))
+                                        slug=slugify(cat["snippet"]["title"]), cat_type='YouTube')
             new_categories.append(cat["id"])
 
     finally:
-        for category in Category.objects.all():
+        for category in Category.objects.filter(cat_type='YouTube'):
             can_delete = True
             for cat in new_categories:
                 if category.cat_id == cat:
@@ -134,25 +134,6 @@ def scheduler():
     sch = BackgroundScheduler()
     sch.add_job(youtube_api, 'interval', hours=12)
     sch.start()
-
-
-def filtered_list(request, category):
-    cat = Category.objects.filter(name=category)[0]
-    categories = Category.objects.all()
-    if cat.cat_type == "Video":
-        videos = Video.objects.filter(category__name=category)
-        context = {"videos": videos, 'categories': categories}
-        return render(request, "video_list.html", context)
-    if cat.cat_type == "Photo":
-        photos = Photo.objects.filter(category__name=category)
-        context = {"photos": photos, 'categories': categories}
-        return render(request, "photo_list.html", context)
-    if cat.cat_type == "Audio":
-        audios = Audio.objects.filter(category__name=category)
-        context = {"audios": audios, 'categories': categories}
-        return render(request, "audio_list.html", context)
-    context = {'categories': categories}
-    return render(request, "temp_home.html", context)
 
 
 def base(request):

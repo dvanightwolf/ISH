@@ -260,7 +260,7 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
 </div>
   </div>
     </header>
-    <div style="padding-top: 3px; text-align: center">
+    <div style="padding-top: 5.5%; text-align: center">
         {% for tag in tags %}
             <button style="background-color: #780a16;
             border-right: #9B111E solid 1px;
@@ -280,15 +280,21 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
                 </a>
                 <div class="nav_list">
                     <a href="{% url 'video:video_list' %}" class="nav_link active">
-                        <i class='bx bx-archive nav_icon'></i>
+                        <i class='bx bx-arch nav_icon'></i>
                         <span class="nav_name">الشيخ أحمد كفتارو</span>
                     </a>
-                    {% for category in categories %}
-                <a href="{% url 'generic:filtered_list' category.name %}" class="nav_link">
-                        <i class='bx bx-archive nav_icon'></i>
-                        <span class="nav_name">{{ category.name }}</span>
+                <a href="{% url 'video:video_list' %}" class="nav_link">
+                        <i class='bx bx-book-open nav_icon'></i>
+                        <span class="nav_name">دروس التفسير</span>
                     </a>
-            {% endfor %}
+                <a href="{% url 'photo:photo_list' %}" class="nav_link">
+                        <i class='bx bx-photo-album nav_icon'></i>
+                        <span class="nav_name">صور سماحته</span>
+                    </a>
+                <a href="{% url 'audio:audio_list' %}" class="nav_link">
+                        <i class='bx bx-album nav_icon'></i>
+                        <span class="nav_name">دروس الصوت</span>
+                    </a>
                     {% if request.user.is_authenticated %}
                         <a href="{% url 'account:logout' %}" class="nav_link">
                             <i class='bx bx-log-out nav_icon'></i>

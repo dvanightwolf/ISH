@@ -27,7 +27,6 @@ urlpatterns = [
     path('videos/', include("video.urls")),
     path('audio/', include("audio.urls")),
     path('photos/', include("photo.urls")),
-    path('generic/', include("generic.urls")),
 
 ]
 
