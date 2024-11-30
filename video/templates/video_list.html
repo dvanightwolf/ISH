@@ -1,10 +1,11 @@
-{% extends 'temp_home.html' %}
+{% include 'home/side_bar.html' %}
 {% block content %}
     {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link href="/ast/css/card style.css" rel="stylesheet">
     <!--<script src="https://kit.fontawesome.com/d26b7c3f6e.js" crossorigin="anonymous"></script>-->
 
     <meta charset="UTF-8">
@@ -67,18 +68,52 @@
     </style>
 </head>
 <body>
-<div class="row" style="padding-left: 5%; padding-right: 5%">
-
-{% for video in videos %}
-    <div class="col-lg-6" style="min-height: 420px;text-align: right;padding-left: 3%; padding-top: 2%">
     <br>
-    <div class="card container post video"  data-aos="fade-up"
+    <div class="row" style="display: flex; flex-wrap: wrap; justify-content: space-between; padding: 0 5%;">
+        {% for video in videos %}
+        <div id="card" style="flex: 0 0 calc(50% - 1rem); min-height: 420px; text-align: right; margin-bottom: 2rem;">
+            <br>
+            
+                <div class="wrap animate pop" style="border-radius: 10px;">
+                    <div class="overlay">
+                        <a href="{{ video.get_video_url }}" style="text-decoration: none !important; border-bottom: none;">
+                        <div class="overlay-content animate slide-left delay-2">
+                            <h1 class="animate slide-left pop delay-4">{{ video.title }}</h1>
+                            {% if video.category %}
+                            <p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;">PlayList: <br> <em>{{ video.category }}</em></p>
+                            {% endif %}
+                        </div>
+                        
+                            <div class="image-content animate slide delay-5" style="
+                                background-image: url({{ video.thumbnail }});
+                                background-size: cover;
+                                background-position: calc(50% + 10px) center; /* Shift the image to the right */
+                                -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 1) 100%);
+                                mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 1) 100%);
+                                -webkit-mask-composite: destination-in;
+                                mask-composite: intersect;
+                            "></div>
+                        
+                    </div>
+                </a>
+                    <div class="text">
+                        <p>{% if video.description %}{{video.description}} {% else %} No description {% endif %}</p>
+                    </div>
+                </div>
+        </div>
+        
+        {% endfor %}
+    </div> 
+
+
+
+    
+    
+
+    {% comment %} <div class="card container post video"  data-aos="fade-up"
      data-aos-duration="2000"
          style="padding: 25px;transition-duration:500ms;border-bottom-right-radius:90px;border-top-left-radius:90px; background-color: rgba(113, 6, 16, 0.97) ">
         <a href="{{ video.get_video_url }}" class="homeAnc">
-        <div>
-            <img class="homeAnc " src="{{ video.thumbnail }}" width="100%" height="300px" style="border-radius: 2%;border-top-left-radius:70px;">
-        </div>
             </a>
         <br>
     <a href="{{ video.get_video_url }}" style="text-decoration: none;align-self: center; color: gold"><h1>{{ video.title }}</h1></a>
@@ -89,14 +124,14 @@
             {% endfor %}
     </h4>
     </div>
-    </div>
-{% endfor %}
-</div>
+    </div> {% endcomment %}
+
 <br>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();
 </script>
+{% include 'home/Footer.html' %}
 </body>
 </html>
 {% endblock content %}

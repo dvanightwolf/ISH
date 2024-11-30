@@ -1,11 +1,15 @@
 import requests
 from apscheduler.schedulers.background import BackgroundScheduler
+from django.core.mail import send_mail
+
+from ISH import settings
 from audio.models import Audio
 from video.models import Video, VideoTag
 from photo.models import Photo
 from .models import Category
 from .models import Tag, Category, Channel
 from django.shortcuts import render
+from .forms import AddContentForm
 
 
 # Create your views here.
@@ -23,6 +27,7 @@ def playlists():
           f"key=AIzaSyC6oTBsOzfiJ5zcue5PTb8VJZvgT_Wd_KU&channelId={Channel.objects.first().ch_id}&part=snippet"
 
     response = requests.request("GET", url)
+    print(response)
     categories = response.json()["items"]
     new_categories = []
     page_token = ""
@@ -141,3 +146,14 @@ def base(request):
     tags = Tag.objects.all()
     context = {'categories': categories, 'tags': tags}
     return render(request, "temp_home.html", context)
+
+
+def add_content(request):
+    """if request.method == "POST"
+        form = AddContentForm(request.POST)
+        if form.is_valid():
+            subject = 'new content'
+            message = f'{form.description}'
+            email_from = "kingabdalndwan@gmail.com"
+            recipient_list = ["vepicob709@oniecan.com", ]
+            send_mail(subject, message, email_from, recipient_list)"""

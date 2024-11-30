@@ -38,7 +38,6 @@ def video_list(request):
     tags = []
     for tag in VideoTag.objects.all():
         tags.append(tag.tag)
-    print(tags)
     categories = Category.objects.all()
     context = {'videos': videos, 'tags': tags, 'categories': categories}
     return render(request, 'video_list.html', context)

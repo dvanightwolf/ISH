@@ -49,7 +49,38 @@
 <body>
 <div class="row" style="padding-left: 5%; padding-right: 5%">
 {% for audio in audios %}
-<br>
+<div id="card" style="flex: 0 0 calc(50% - 1rem); min-height: 420px; text-align: right; margin-bottom: 2rem;">
+    <br>
+    
+        <div class="wrap animate pop" style="border-radius: 10px;">
+            <div class="overlay">
+                <a href="{{ audio.get_audio_url }}" style="text-decoration: none !important; border-bottom: none;">
+                <div class="overlay-content animate slide-left delay-2">
+                    <h1 class="animate slide-left pop delay-3">{{ audio.title }}</h1>
+                    {% if photo.category %}
+                    <p class="animate slide-left pop delay-3" style="color: white; margin-bottom: 2.5rem;">PlayList: <br> <em>{{ audio.category }}</em></p>
+                    {% endif %}
+                </div>
+                
+                    <div class="image-content animate slide delay-5" style="
+                        background-image: url({{ photo.photo.url }});
+                        background-size: cover;
+                        background-position: calc(50% + 10px) center; /* Shift the image to the right */
+                        -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 1) 100%);
+                        mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 1) 100%);
+                        -webkit-mask-composite: destination-in;
+                        mask-composite: intersect;
+                    "></div>
+                
+            </div>
+        </a>
+            <div class="text">
+                <p>{% if photo.description %}{{photo.description}} {% else %} No description {% endif %}</p>
+            </div>
+        </div>
+</div>
+
+{% comment %} <br>
     <br>
     <div class="col-lg-6" style="min-height: 200px;text-align: right; padding-bottom: 1%">
     <br>
@@ -61,7 +92,7 @@
     <br>
         <button class="cat" style="border: #a18f34 1px solid; border-radius: 100px; position: relative; bottom: 9px ">{{ audio.category }}</button>
     </div>
-    </div>
+    </div> {% endcomment %}
 {% endfor %}
 </div>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

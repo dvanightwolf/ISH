@@ -6,7 +6,13 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <style>
+        <title>Landed by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/ast/CSS/main.css" />
+		<noscript><link rel="stylesheet" href="/ast/CSS/noscript.css" /></noscript>
+	</head>
+    {% comment %} <style>
                 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
                 :root{
                     --header-height: 3rem;
@@ -177,7 +183,7 @@
     .dropdown-content a:hover {background-color: #ddd;}
 
     .dropdown:hover .dropdown-content {display: block;}
-    </style>
+    </style> {% endcomment %}
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -220,7 +226,44 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
     </script>
 </head>
 <body id="body-pd">
-    <header class="header align-items-center mb-3 my-2 my-md-0 mr-md-3" id="header"
+    <!-- Header -->
+    <header id="header">
+        <div style="text-align: center; width: 100%; color: red; font-weight:1000">
+            Under development
+        </div>
+        <h1 id="logo"><a href="{% url 'home' %}">Sofiah al Quran</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="{% url 'video:video_list' %}">الشيخ أحمد كفتارو</a></li>
+                {% comment %} <li>
+                    <a href="#">Layouts</a>
+                    <ul>
+                        <li><a href="left-sidebar.html">Left Sidebar</a></li>
+                        <li><a href="right-sidebar.html">Right Sidebar</a></li>
+                        <li><a href="no-sidebar.html">No Sidebar</a></li>
+                        <li>
+                            <a href="#">Submenu</a>
+                            <ul>
+                                <li><a href="#">Option 1</a></li>
+                                <li><a href="#">Option 2</a></li>
+                                <li><a href="#">Option 3</a></li>
+                                <li><a href="#">Option 4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li> {% endcomment %}
+                <li><a href="{% url 'photo:photo_list' %}">صور سماحته</a></li>
+                <li><a href="{% url 'audio:audio_list' %}">دروس الصوت</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'account:logout' %}" class="button primary">تسجيل الخروج</a></li>
+                {% else %}
+                <li><a href="{% url 'account:login' %}" class="button primary">تسجيل الدخول</a></li>
+                <li><a href="{% url 'account:register' %}" class="button primary">تسجيل حساب جديد</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% comment %} <header class="header align-items-center mb-3 my-2 my-md-0 mr-md-3" id="header"
             style="background: rgba(113, 6, 16, 0.8); backdrop-filter: blur(5px)">
 
           <div class="container-fluid">
@@ -259,8 +302,9 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
       </div>
 </div>
   </div>
-    </header>
-    <div style="padding-top: 5.5%; text-align: center">
+    </header> {% endcomment %}
+
+    {% comment %} <div style="padding-top: 5.5%; text-align: center">
         {% for tag in tags %}
             <button style="background-color: #780a16;
             border-right: #9B111E solid 1px;
@@ -274,45 +318,26 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
-                <a href="{% url 'home' %}" class="nav_logo">
-                    <i class='bx bxs-home nav_logo-icon'></i>
-                    <span class="nav_logo-name">صوفية القرآن</span>
-                </a>
                 <div class="nav_list">
-                    <a href="{% url 'video:video_list' %}" class="nav_link active">
-                        <i class='bx bx-arch nav_icon'></i>
-                        <span class="nav_name">الشيخ أحمد كفتارو</span>
-                    </a>
-                <a href="{% url 'video:video_list' %}" class="nav_link">
-                        <i class='bx bx-book-open nav_icon'></i>
-                        <span class="nav_name">دروس التفسير</span>
-                    </a>
-                <a href="{% url 'photo:photo_list' %}" class="nav_link">
-                        <i class='bx bx-photo-album nav_icon'></i>
-                        <span class="nav_name">صور سماحته</span>
-                    </a>
-                <a href="{% url 'audio:audio_list' %}" class="nav_link">
-                        <i class='bx bx-album nav_icon'></i>
-                        <span class="nav_name">دروس الصوت</span>
-                    </a>
-                    {% if request.user.is_authenticated %}
+                    
                         <a href="{% url 'account:logout' %}" class="nav_link">
                             <i class='bx bx-log-out nav_icon'></i>
                             <span class="nav_name">تسجيل الخروج</span>
                         </a>
-                    {% else %}
+                    
                         <a href="{% url 'account:login' %}" class="nav_link">
                              <i class='bx bx-user nav_icon'></i>
                             <span class="nav_name">تسجيل الدخول</span>
                         </a>
                         <a href="{% url 'account:register' %}" class="nav_link">
                             <i class='bx bx-user nav_icon'></i>
-                            <span class="nav_name">إنشاء حساب</span>
+                            <span class="nav_name">تسجيل الدخول</span>
                         </a>
-                    {% endif %}
+                    
                 </div>
 
             </div>
 
         </nav>
-    </div>
+    </div> {% endcomment %}
+</body>

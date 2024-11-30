@@ -84,6 +84,23 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+#         'NAME': 'Sofia_Quran',
+
+#         'USER': 'postgres',
+
+#         'PASSWORD': 'ISH**1915',
+
+#         'HOST': 'localhost',
+
+#         'PORT': '5432',
+#     }
+# }
+
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -123,9 +140,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'SAA/static'),
-    os.path.join(BASE_DIR,'SAA/static/ourStyles'),
-
+    os.path.join(BASE_DIR, '/static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
@@ -136,6 +151,13 @@ AST_FILES = os.path.join(BASE_DIR, 'ast/')
 # Authentication related URLs
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'account:login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "kingabdalndwan@gmail.com"
+EMAIL_HOST_PASSWORD = "1232741918Abd123Ndwan"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
