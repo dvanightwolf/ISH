@@ -28,7 +28,6 @@ urlpatterns = [
     path('videos/', include("video.urls")),
     path('audio/', include("audio.urls")),
     path('photos/', include("photo.urls")),
-
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

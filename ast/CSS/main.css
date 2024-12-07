@@ -3450,6 +3450,7 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
+		margin-bottom: -25px ;
 		background-attachment: fixed;
 		background-color: #272833;
 		background-image: url("../../images/banner.jpg");
@@ -3465,16 +3466,16 @@ input, select, textarea {
 		#banner:before {
 			content: '';
 			display: inline-block;
-			height: 100vh;
+			height: 65vh;
 			vertical-align: middle;
 			width: 1%;
 		}
 
 		#banner:after {
-			background-image: -moz-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("images/overlay.png");;
-			background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("images/overlay.png");;
-			background-image: -ms-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("images/overlay.png");;
-			background-image: linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("images/overlay.png");;
+			background-image: -moz-linear-gradient(top, rgba(23, 24, 32, 0.664), rgba(23, 24, 32, 0.664)), url("images/overlay.png");;
+			background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.664), rgba(23, 24, 32, 0.664)), url("images/overlay.png");;
+			background-image: -ms-linear-gradient(top, rgba(23, 24, 32, 0.664), rgba(23, 24, 32, 0.664)), url("images/overlay.png");;
+			background-image: linear-gradient(top, rgba(23, 24, 32, 0.664), rgba(23, 24, 32, 0.664)), url("images/overlay.png");;
 			content: '';
 			display: block;
 			height: 100%;

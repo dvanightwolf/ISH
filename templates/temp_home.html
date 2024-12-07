@@ -8,12 +8,26 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
-    <link rel="stylesheet" href="ast/css/style.css">
+    <link rel="stylesheet" href="/ast/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/ast/bootstrap/bootstrap-4.4.1.css">
      <link rel="stylesheet" href="/ast/bootstrap/boxicons.min.css">
 </head>
 <body>
+    <style>
+        .custom-box {
+    background: rgba(39, 40, 51, 0.267); /* Transparent color */
+    backdrop-filter: blur(8px); /* For the background behind the div to be blurred */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    border-radius: 8px; /* Optional: To make corners rounded */
+    color: white; /* Optional: Makes text more readable on a dark background */
+    z-index: 3;
+    max-width: 30%;
+    min-width: 200px;
+    min-height: 200px;
+}
+
+    </style>
 
 {% include 'home/side_bar.html' %}
 {% include 'home/home.html' %}
@@ -34,22 +48,28 @@
                      استكشفوا معنا مسيرة الشيخ، إرثه الفكري، وأثره الكبير في المجتمع الإسلامي والعالمي.
                 </p>
             </header>
-            <span class="image"><img src="/media/photo/11.jpg" alt="Shem Ahmed Keftaro" /></span>
+            
+            <span class="image" style="z-index: 3;"><img src="/media/photo/11.jpg" alt="Shem Ahmed Keftaro"  style="z-index: 3;"/></span>
+            
         </div>
-        <a href="#one" class="goto-next scrolly">Next</a>
+        <div class="content row" style="display: flex; justify-content: space-evenly; max-width: 99%;">
+            <div class="col-md-4 custom-box">abd</div>
+            <div class="col-md-4 custom-box">dsa</div>
+            <div class="col-md-4 custom-box">asd</div>
+        </div>
+        
+        <a href="#one" class="goto-next scrolly" style="z-index: 4;">Next</a>
     </section>
 
 <!-- One -->
     <section id="one" class="spotlight style1 section-move bottom">
-        <span class="image fit main"><img src="/media/photo/pic02.jpg" alt="Quran Interpretation" /></span>
+        <span class="image fit main"><img src="/media/photo/section 1.jpg" alt="Quran Interpretation" /></span>
         <div class="content">
             <div class="container">
                 <div class="row">
                     <div class="col-5 col-12-medium">
                         <p style="text-align: right;">
-                            يُقدّم سماحة الشيخ أحمد كفتارو دروسًا متميزة وعميقة في تفسير القرآن الكريم، حيث يتناول معاني الآيات ويشرح السياقات القرآنية بأسلوب علمي وروحاني، يهدف إلى تعزيز فهم القرآن وتطبيقه في حياتنا اليومية. تُعد هذه الدروس منارة للباحثين عن المعرفة الدينية والروحية، وتقدم للمستمعين طريقة سهلة وعميقة لفهم معاني كتاب الله.
-                            <br><br>
-                            لمتابعة الدروس بالفيديو، اضغط على زر الفيديوهات أدناه.
+                            يُقدّم سماحة الشيخ أحمد كفتارو دروسًا متميزة وعميقة في تفسير القرآن الكريم، حيث يتناول معاني الآيات ويشرح السياقات القرآنية بأسلوب علمي وروحاني، يهدف إلى تعزيز فهم القرآن وتطبيقه في حياتنا اليومية. تُعد هذه الدروس منارة للباحثين عن المعرفة الدينية والروحية، وتقدم للمستمعين طريقة سهلة وعميقة لفهم معاني كتاب الله
                         </p>
                     </div>
                     <div class="col-3 col-12-medium">
@@ -70,7 +90,7 @@
 
 <!-- Two -->
     <section id="two" class="spotlight section-move style2 right">
-        <span class="image fit main"><img src="/media/photo/pic03.jpg" alt="Sheikh Keftaro Life" /></span>
+        <span class="image fit main"><img src="/media/photo/section 2.jpg" alt="Sheikh Keftaro Life" /></span>
         <div class="content" style="text-align: right;">
             <header>
                 <h2>صور من حياة الشيخ أحمد كفتارو</h2>
@@ -79,7 +99,9 @@
             <p>
                 تقدم هذه الصور لمحة عن مسيرة الشيخ أحمد كفتارو، حيث يتجلى فيها دوره الكبير في نشر الدعوة الإسلامية، وزيارته للمؤتمرات واللقاءات العلمية، وأثره العميق في المجتمع المحلي والدولي.
             </p>
-            <ul class="actions">
+            <br>
+            <br>
+            <ul class="actions" style="position: absolute; bottom: 0; width: 100%; padding-bottom: 20px; text-align: center;">
                 <li><a href="#" class="button">استعرض المزيد</a></li>
             </ul>
         </div>
@@ -88,7 +110,9 @@
 
 <!-- Three -->
 <section id="three" class="spotlight section-move style3 left">
-    <span class="image fit main bottom"><img src="/media/photo/pic04.jpg" alt="Audio Lectures of Sheikh Keftaro" /></span>
+    <span class="image fit main bottom"><img src="/media/photo/mics.JPG" style="transform: translateY(-10px) scale(1.05); /* Move the image up and zoom in slightly */" alt="Audio Lectures of Sheikh Keftaro" />
+
+    </span>
     <div class="content" style="text-align: right;">
         <header>
             <h2>الدروس الصوتية للشيخ أحمد كفتارو</h2>
@@ -97,7 +121,9 @@
         <p>
             تقدم هذه الدروس الصوتية خلاصة من علم سماحة الشيخ أحمد كفتارو في مجالات متعددة من العلوم الدينية، بما في ذلك تفسير القرآن الكريم، الفقه، والعقيدة. تهدف هذه الدروس إلى توجيه المستمعين نحو فهم أعمق لكتاب الله وسنة نبيه صلى الله عليه وسلم.
         </p>
-        <ul class="actions">
+        <br>
+        <br>
+        <ul class="actions" style="position: absolute; bottom: 0; width: 100%; padding-bottom: 20px; text-align: center;">
             <li><a href="{% url 'audio:audio_list' %}" class="button">استمع إلى الدروس الصوتية</a></li>
         </ul>
     </div>
@@ -155,14 +181,15 @@
     </section>
 	{% endblock content %}
     <!-- Scripts -->
-	<script src="ast/js/jquery.min.js"></script>
-	<script src="ast/js/jquery.scrolly.min.js"></script>
-	<script src="ast/js/jquery.dropotron.min.js"></script>
-	<script src="ast/js/jquery.scrollex.min.js"></script>
-	<script src="ast/js/browser.min.js"></script>
-	<script src="ast/js/breakpoints.min.js"></script>
-	<script src="ast/js/util.js"></script>
-	<script src="ast/js/main.js"></script>
+	<script src="/ast/js/jquery.min.js"></script>
+	<script src="/ast/js/jquery.scrolly.min.js"></script>
+	<script src="/ast/js/jquery.dropotron.min.js"></script>
+	<script src="/ast/js/jquery.scrollex.min.js"></script>
+	<script src="/ast/js/browser.min.js"></script>
+	<script src="/ast/js/breakpoints.min.js"></script>
+	<script src="/ast/js/util.js"></script>
+	<script src="/ast/JS/main.js"></script>
+    <script src="/ast/CSS/main.css"></script>
 </div>
 
 {% include 'home/Footer.html' %}
