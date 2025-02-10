@@ -1,313 +1,337 @@
-/*
-	Landed by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+/* =====================================
+Template Name: 	Mediplus.
+Author Name: Naimur Rahman
+Website: http://wpthemesgrid.com/
+Description: Mediplus - Doctor HTML Template.
+Version:	1.1
+========================================*/
+/*=======================================
+[Start Activation Code]
+=========================================
+* Sticky Header JS
+* Search JS
+* Mobile Menu JS
+* Hero Slider JS
+* Testimonial Slider JS
+* Portfolio Slider JS
+* Clients Slider JS
+* Single Portfolio Slider JS
+* Accordion JS
+* Nice Select JS
+* Date Picker JS
+* Counter Up JS
+* Checkbox JS
+* Right Bar JS
+* Video Popup JS
+* Wow JS
+* Scroll Up JS
+* Animate Scroll JS
+* Stellar JS
+* RTL Version JS
+* Preloader JS
+=========================================
+[End Activation Code]
+=========================================*/
+(function ($) {
+  "use strict";
+  $(document).on("ready", function () {
+    jQuery(window).on("scroll", function () {
+      if ($(this).scrollTop() > 200) {
+        $("#header .header-inner").addClass("sticky");
+      } else {
+        $("#header .header-inner").removeClass("sticky");
+      }
+    });
 
-(function($) {
+    /*====================================
+			Sticky Header JS
+		======================================*/
+    jQuery(window).on("scroll", function () {
+      if ($(this).scrollTop() > 100) {
+        $(".header").addClass("sticky");
+      } else {
+        $(".header").removeClass("sticky");
+      }
+    });
 
-	var	$window = $(window),
-		$body = $('body');
+    /*====================================
+			Search JS
+		======================================*/
+    $(".search a").on("click", function () {
+      $(".search-top").toggleClass("active");
+    });
 
-	// Breakpoints.
-	breakpoints({
-		xlarge:   [ '1281px',  '1680px' ],
-		large:    [ '981px',   '1280px' ],
-		medium:   [ '737px',   '980px'  ],
-		small:    [ '481px',   '736px'  ],
-		xsmall:   [ null,      '480px'  ]
-	});
+    /*====================================
+			Mobile Menu
+		======================================*/
+    $(".menu").slicknav({
+      prependTo: ".mobile-nav",
+      duration: 300,
+      closeOnClick: true,
+    });
 
-	// Play initial animations on page load.
-	$window.on('load', function() {
-		window.setTimeout(function() {
-			$body.removeClass('is-preload');
-		}, 100);
-	});
+    /*===============================
+			Hero Slider JS
+		=================================*/
+    $(".hero-slider").owlCarousel({
+      loop: true,
+      autoplay: false,
+      smartSpeed: 500,
+      autoplayTimeout: 3500,
+      singleItem: true,
+      autoplayHoverPause: true,
+      items: 1,
+      nav: true,
+      navText: [
+        '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+        '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+      ],
+      dots: false,
+    });
 
-	// Touch mode.
-		if (browser.mobile)
-			$body.addClass('is-touch');
+    /*===============================
+			Testimonial Slider JS
+		=================================*/
+    $(".testimonial-slider").owlCarousel({
+      items: 3,
+      autoplay: true,
+      autoplayTimeout: 4500,
+      smartSpeed: 300,
+      autoplayHoverPause: true,
+      loop: true,
+      merge: true,
+      nav: false,
+      dots: true,
+      responsive: {
+        1: {
+          items: 1,
+        },
+        300: {
+          items: 1,
+        },
+        480: {
+          items: 1,
+        },
+        768: {
+          items: 2,
+        },
+        1170: {
+          items: 3,
+        },
+      },
+    });
 
-	// Scrolly links.
-	$('.scrolly').scrolly({
-		speed: 500
-	});
+    /*===============================
+			Portfolio Slider JS
+		=================================*/
+    $(".portfolio-slider").owlCarousel({
+      autoplay: true,
+      autoplayTimeout: 4000,
+      margin: 15,
+      smartSpeed: 300,
+      autoplayHoverPause: true,
+      loop: true,
+      nav: true,
+      dots: false,
+      responsive: {
+        300: {
+          items: 1,
+        },
+        480: {
+          items: 2,
+        },
+        768: {
+          items: 2,
+        },
+        1170: {
+          items: 4,
+        },
+      },
+    });
 
-	let isScrolling = false; // To prevent overlapping scroll events
+    /*=====================================
+			Counter Up JS
+		======================================*/
+    $(".counter").counterUp({
+      delay: 20,
+      time: 2000,
+    });
 
-        const sections = document.querySelectorAll('.section-move'); // Get all sections
-		console.log("sections",sections)
-        const getClosestSectionIndex = () => {
-            const scrollPosition = window.scrollY + window.innerHeight / 2;
-			console.log(scrollPosition)
-            let closestIndex = 0;
+    /*===============================
+			Clients Slider JS
+		=================================*/
+    $(".clients-slider").owlCarousel({
+      items: 5,
+      autoplay: true,
+      autoplayTimeout: 3500,
+      margin: 15,
+      smartSpeed: 400,
+      autoplayHoverPause: true,
+      loop: true,
+      nav: false,
+      dots: false,
+      responsive: {
+        300: {
+          items: 1,
+        },
+        480: {
+          items: 2,
+        },
+        768: {
+          items: 3,
+        },
+        1170: {
+          items: 5,
+        },
+      },
+    });
 
-            sections.forEach((section, index) => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
+    /*====================================
+			Single Portfolio Slider JS
+		======================================*/
+    $(".pf-details-slider").owlCarousel({
+      items: 1,
+      autoplay: false,
+      autoplayTimeout: 5000,
+      smartSpeed: 400,
+      autoplayHoverPause: true,
+      loop: true,
+      merge: true,
+      nav: true,
+      dots: false,
+      navText: [
+        '<i class="icofont-rounded-left"></i>',
+        '<i class="icofont-rounded-right"></i>',
+      ],
+    });
 
-                // Find the section closest to the center of the viewport
-                if (
-                    scrollPosition >= sectionTop &&
-                    scrollPosition < sectionTop + sectionHeight
-                ) {
-                    closestIndex = index;
-                }
-            });
+    /*===================
+			Accordion JS
+		=====================*/
+    $(".accordion > li:eq(0) a").addClass("active").next().slideDown();
+    $(".accordion a").on("click", function (j) {
+      var dropDown = $(this).closest("li").find("p");
+      $(this).closest(".accordion").find("p").not(dropDown).slideUp(300);
+      if ($(this).hasClass("active")) {
+        $(this).removeClass("active");
+      } else {
+        $(this).closest(".accordion").find("a.active").removeClass("active");
+        $(this).addClass("active");
+      }
+      dropDown.stop(false, true).slideToggle(300);
+      j.preventDefault();
+    });
 
-            return closestIndex;
-        };
+    /*====================================
+			Nice Select JS
+		======================================*/
+    $("select").niceSelect();
 
-        window.addEventListener(
-            'wheel',
-            (event) => {
-                event.preventDefault(); // Prevent default scroll behavior
+    /*=====================================
+			Date Picker JS
+		======================================*/
+    $(function () {
+      $("#datepicker").datepicker();
+    });
 
-                if (isScrolling) return; // Ignore if already scrolling
-                isScrolling = true;
-				console.log(getClosestSectionIndex());
-                const currentSectionIndex = getClosestSectionIndex();
-                let targetSectionIndex =
-                    event.deltaY > 0
-                        ? currentSectionIndex + 1
-                        : currentSectionIndex - 1;
-				
+    /*===============================
+			Checkbox JS
+		=================================*/
+    $('input[type="checkbox"]').change(function () {
+      if ($(this).is(":checked")) {
+        $(this).parent("label").addClass("checked");
+      } else {
+        $(this).parent("label").removeClass("checked");
+      }
+    });
 
-                // Clamp to ensure target index stays within bounds
-                targetSectionIndex = Math.max(
-                    0,
-                    Math.min(targetSectionIndex, sections.length - 1)
-                );
-				console.log("a",targetSectionIndex)
+    /*===============================
+			Right Bar JS
+		=================================*/
+    $(".right-bar .bar").on("click", function () {
+      $(".sidebar-menu").addClass("active");
+    });
+    $(".sidebar-menu .cross").on("click", function () {
+      $(".sidebar-menu").removeClass("active");
+    });
 
-                const targetSection = sections[targetSectionIndex];
+    /*=====================
+			Video Popup JS
+		=======================*/
+    $(".video-popup").magnificPopup({
+      type: "iframe",
+    });
 
-                // Smooth scroll to the target section
-                window.scrollTo({
-                    top: targetSection.offsetTop,
-                    behavior: 'smooth',
-                });
+    /*================
+			Wow JS
+		==================*/
+    var window_width = $(window).width();
+    if (window_width > 767) {
+      new WOW().init();
+    }
 
-                // Delay to allow smooth scrolling to complete
-                setTimeout(() => {
-                    isScrolling = false;
-                }, 800); // Adjust timeout to match scroll duration
-            },
-            { passive: false }
+    /*===================
+			Scroll Up JS
+		=====================*/
+    $.scrollUp({
+      scrollText: '<span><i class="fa fa-angle-up"></i></span>',
+      easingType: "easeInOutExpo",
+      scrollSpeed: 900,
+      animation: "fade",
+    });
+
+    /*=======================
+			Animate Scroll JS
+		=========================*/
+    $(".scroll").on("click", function (e) {
+      var anchor = $(this);
+      $("html, body")
+        .stop()
+        .animate(
+          {
+            scrollTop: $(anchor.attr("href")).offset().top - 100,
+          },
+          1000
         );
-
-	// Dropdowns.
-		$('#nav > ul').dropotron({
-			alignment: 'right',
-			hideDelay: 350
-		});
-
-	// Nav.
-
-		// Title Bar.
-			$(
-				'<div id="titleBar">' +
-					'<a href="#navPanel" class="toggle"></a>' +
-					'<span class="title">' + $('#logo').html() + '</span>' +
-				'</div>'
-			)
-				.appendTo($body);
-
-		// Panel.
-			$(
-				'<div id="navPanel">' +
-					'<nav>' +
-						$('#nav').navList() +
-					'</nav>' +
-				'</div>'
-			)
-				.appendTo($body)
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'left',
-					target: $body,
-					visibleClass: 'navPanel-visible'
-				});
-
-	// Parallax.
-	// Disabled on IE (choppy scrolling) and mobile platforms (poor performance).
-		if (browser.name == 'ie'
-		||	browser.mobile) {
-
-			$.fn._parallax = function() {
-
-				return $(this);
-
-			};
-
-		}
-		else {
-
-			$.fn._parallax = function() {
-
-				$(this).each(function() {
-
-					var $this = $(this),
-						on, off;
-
-					on = function() {
-
-						$this
-							.css('background-position', 'center 0px');
-
-						$window
-							.on('scroll._parallax', function() {
-
-								var pos = parseInt($window.scrollTop()) - parseInt($this.position().top);
-
-								$this.css('background-position', 'center ' + (pos * -0.15) + 'px');
-
-							});
-
-					};
-
-					off = function() {
-
-						$this
-							.css('background-position', '');
-
-						$window
-							.off('scroll._parallax');
-
-					};
-
-					breakpoints.on('<=medium', off);
-					breakpoints.on('>medium', on);
-
-				});
-
-				return $(this);
-
-			};
-
-			$window
-				.on('load resize', function() {
-					$window.trigger('scroll');
-				});
-
-		}
-
-	// Spotlights.
-		var $spotlights = $('.spotlight');
-
-		$spotlights
-			._parallax()
-			.each(function() {
-
-				var $this = $(this),
-					on, off;
-
-				on = function() {
-
-					var top, bottom, mode;
-
-					// Use main <img>'s src as this spotlight's background.
-						$this.css('background-image', 'url("' + $this.find('.image.main > img').attr('src') + '")');
-
-					// Side-specific scrollex tweaks.
-						if ($this.hasClass('top')) {
-
-							mode = 'top';
-							top = '-20%';
-							bottom = 0;
-
-						}
-						else if ($this.hasClass('bottom')) {
-
-							mode = 'bottom-only';
-							top = 0;
-							bottom = '20%';
-
-						}
-						else {
-
-							mode = 'middle';
-							top = 0;
-							bottom = 0;
-
-						}
-
-					// Add scrollex.
-						$this.scrollex({
-							mode:		mode,
-							top:		top,
-							bottom:		bottom,
-							initialize:	function(t) { $this.addClass('inactive'); },
-							terminate:	function(t) { $this.removeClass('inactive'); },
-							enter:		function(t) { $this.removeClass('inactive'); },
-
-							// Uncomment the line below to "rewind" when this spotlight scrolls out of view.
-
-							//leave:	function(t) { $this.addClass('inactive'); },
-
-						});
-
-				};
-
-				off = function() {
-
-					// Clear spotlight's background.
-						$this.css('background-image', '');
-
-					// Remove scrollex.
-						$this.unscrollex();
-
-				};
-
-				breakpoints.on('<=medium', off);
-				breakpoints.on('>medium', on);
-
-			});
-
-	// Wrappers.
-		var $wrappers = $('.wrapper');
-
-		$wrappers
-			.each(function() {
-
-				var $this = $(this),
-					on, off;
-
-				on = function() {
-
-					$this.scrollex({
-						top:		250,
-						bottom:		0,
-						initialize:	function(t) { $this.addClass('inactive'); },
-						terminate:	function(t) { $this.removeClass('inactive'); },
-						enter:		function(t) { $this.removeClass('inactive'); },
-
-						// Uncomment the line below to "rewind" when this wrapper scrolls out of view.
-
-						//leave:	function(t) { $this.addClass('inactive'); },
-
-					});
-
-				};
-
-				off = function() {
-					$this.unscrollex();
-				};
-
-				breakpoints.on('<=medium', off);
-				breakpoints.on('>medium', on);
-
-			});
-
-	// Banner.
-		var $banner = $('#banner');
-
-		$banner
-			._parallax();
-
+      e.preventDefault();
+    });
+
+    /*=======================
+			Stellar JS
+		=========================*/
+    $.stellar({
+      horizontalOffset: 0,
+      verticalOffset: 0,
+    });
+
+    /*=======================
+			RTL Version JS
+		=========================*/
+    // When the RTL Version is clicked
+    $(".rtl-btn").on("click", function () {
+      $("body").addClass("rtl"); // Add 'rtl' class to the body
+      $(".container").addClass("rtl");
+      $(this).addClass("active"); // Add 'active' class to the clicked element
+      $(".ltr-btn").removeClass("active"); // Remove 'active' class from the LTR element
+    });
+
+    // When the LTR Version is clicked
+    $(".ltr-btn").on("click", function () {
+      $("body").removeClass("rtl"); // Remove 'rtl' class from the body
+      $(".container").removeClass("rtl");
+      $(this).addClass("active"); // Add 'active' class to the clicked element
+      $(".rtl-btn").removeClass("active"); // Remove 'active' class from the RTL element
+    });
+  });
+
+  /*====================
+		Preloader JS
+	======================*/
+  $(window).on("load", function () {
+    $(".preloader").addClass("preloader-deactivate");
+    $("body").addClass("rtl"); // Add 'rtl' class to the body
+    $(".container").addClass("rtl");
+    $(this).addClass("active"); // Add 'active' class to the clicked element
+    $(".ltr-btn").removeClass("active"); // Remove 'active' class from the LTR element
+});
 })(jQuery);

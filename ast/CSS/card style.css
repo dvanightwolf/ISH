@@ -3,7 +3,10 @@
 	margin: 0;
 	box-sizing: border-box;
 }
-
+:root {
+	--main-color: #e5ddcc;
+	--secondary-color: #0a4019;
+  }
 p {
 	font-size: max(10pt, 2.5vmin);
 	line-height: 1.4;
@@ -92,7 +95,7 @@ p {
 	width: 60vmin;
 	height: 100%;
 	padding: 3vmin 4vmin;
-	background: #fff;
+	background: var(--main-color);
 	box-shadow: inset 1px 1px 15px 0 rgba(0 0 0 / .4);
 	overflow-y: scroll;
 }

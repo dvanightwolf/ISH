@@ -1,197 +1,824 @@
-<!DOCTYPE html>
-<html lang=en>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <meta charset="UTF-8">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
-    <link rel="stylesheet" href="/ast/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/ast/bootstrap/bootstrap-4.4.1.css">
-     <link rel="stylesheet" href="/ast/bootstrap/boxicons.min.css">
-</head>
-<body>
-    <style>
-        .custom-box {
-    background: rgba(39, 40, 51, 0.267); /* Transparent color */
-    backdrop-filter: blur(8px); /* For the background behind the div to be blurred */
-    -webkit-backdrop-filter: blur(8px); /* Safari support */
-    border-radius: 8px; /* Optional: To make corners rounded */
-    color: white; /* Optional: Makes text more readable on a dark background */
-    z-index: 3;
-    max-width: 30%;
-    min-width: 200px;
-    min-height: 200px;
-}
+{% extends "home/home.html" %}
+{% block content%}
+<body class="rtl">
+<!-- Preloader -->
+<div class="preloader">
+  <div class="loader">
+    <div class=""></div>
+    <div class=""></div>
 
-    </style>
-
-{% include 'home/side_bar.html' %}
-{% include 'home/home.html' %}
-<div class="main">
-    {% block content %}
-    <!-- Banner -->
-    <section id="banner" class="section-move" style="background-image: url('/media/photo/4Z3A3010.JPG')">
-        <div class="content">
-            <header>
-                <h2>الشيخ أحمد كفتارو: علمٌ في سماء الدعوة</h2>
-                <p>
-                    مرحبًا بكم في الموقع الرسمي لسماحة الشيخ أحمد كفتارو
-                </p>
-                <p>
-                    العالم الجليل الذي خدم الدين والإنسانية بحكمته، وكرّس حياته لنشر العلم والدعوة إلى الله تعالى.
-                </p>
-                <p>
-                     استكشفوا معنا مسيرة الشيخ، إرثه الفكري، وأثره الكبير في المجتمع الإسلامي والعالمي.
-                </p>
-            </header>
-            
-            <span class="image" style="z-index: 3;"><img src="/media/photo/11.jpg" alt="Shem Ahmed Keftaro"  style="z-index: 3;"/></span>
-            
-        </div>
-        <div class="content row" style="display: flex; justify-content: space-evenly; max-width: 99%;">
-            <div class="col-md-4 custom-box">abd</div>
-            <div class="col-md-4 custom-box">dsa</div>
-            <div class="col-md-4 custom-box">asd</div>
-        </div>
-        
-        <a href="#one" class="goto-next scrolly" style="z-index: 4;">Next</a>
-    </section>
-
-<!-- One -->
-    <section id="one" class="spotlight style1 section-move bottom">
-        <span class="image fit main"><img src="/media/photo/section 1.jpg" alt="Quran Interpretation" /></span>
-        <div class="content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-5 col-12-medium">
-                        <p style="text-align: right;">
-                            يُقدّم سماحة الشيخ أحمد كفتارو دروسًا متميزة وعميقة في تفسير القرآن الكريم، حيث يتناول معاني الآيات ويشرح السياقات القرآنية بأسلوب علمي وروحاني، يهدف إلى تعزيز فهم القرآن وتطبيقه في حياتنا اليومية. تُعد هذه الدروس منارة للباحثين عن المعرفة الدينية والروحية، وتقدم للمستمعين طريقة سهلة وعميقة لفهم معاني كتاب الله
-                        </p>
-                    </div>
-                    <div class="col-3 col-12-medium">
-                        <p></p>
-                    </div>
-                    <div class="col-4 col-12-medium">
-                        <header>
-                            <a href="{% url 'video:video_list' %}" style="text-decoration: none;">
-                                <h2 style="text-align: right;">دروس تفسير القرآن الكريم</h2>
-                            </a>
-                        </header>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a href="#two" class="goto-next scrolly">Next</a>
-    </section>
-
-<!-- Two -->
-    <section id="two" class="spotlight section-move style2 right">
-        <span class="image fit main"><img src="/media/photo/section 2.jpg" alt="Sheikh Keftaro Life" /></span>
-        <div class="content" style="text-align: right;">
-            <header>
-                <h2>صور من حياة الشيخ أحمد كفتارو</h2>
-                <p>استعرض مجموعة من الصور التي توثق لحظات من حياة سماحة الشيخ أحمد كفتارو في المحافل العلمية والدينية.</p>
-            </header>
-            <p>
-                تقدم هذه الصور لمحة عن مسيرة الشيخ أحمد كفتارو، حيث يتجلى فيها دوره الكبير في نشر الدعوة الإسلامية، وزيارته للمؤتمرات واللقاءات العلمية، وأثره العميق في المجتمع المحلي والدولي.
-            </p>
-            <br>
-            <br>
-            <ul class="actions" style="position: absolute; bottom: 0; width: 100%; padding-bottom: 20px; text-align: center;">
-                <li><a href="#" class="button">استعرض المزيد</a></li>
-            </ul>
-        </div>
-        <a href="#three" class="goto-next scrolly">Next</a>
-    </section>
-
-<!-- Three -->
-<section id="three" class="spotlight section-move style3 left">
-    <span class="image fit main bottom"><img src="/media/photo/mics.JPG" style="transform: translateY(-10px) scale(1.05); /* Move the image up and zoom in slightly */" alt="Audio Lectures of Sheikh Keftaro" />
-
-    </span>
-    <div class="content" style="text-align: right;">
-        <header>
-            <h2>الدروس الصوتية للشيخ أحمد كفتارو</h2>
-            <p>استمع إلى المحاضرات القيمة التي قدمها الشيخ في تفسير القرآن الكريم والعلوم الشرعية.</p>
-        </header>
-        <p>
-            تقدم هذه الدروس الصوتية خلاصة من علم سماحة الشيخ أحمد كفتارو في مجالات متعددة من العلوم الدينية، بما في ذلك تفسير القرآن الكريم، الفقه، والعقيدة. تهدف هذه الدروس إلى توجيه المستمعين نحو فهم أعمق لكتاب الله وسنة نبيه صلى الله عليه وسلم.
-        </p>
-        <br>
-        <br>
-        <ul class="actions" style="position: absolute; bottom: 0; width: 100%; padding-bottom: 20px; text-align: center;">
-            <li><a href="{% url 'audio:audio_list' %}" class="button">استمع إلى الدروس الصوتية</a></li>
-        </ul>
+    <div class="indicator">
+      <img src="/media/img/rangoli.gif" width="70">
+      
     </div>
-    <a href="#four" class="goto-next scrolly">Next</a>
-</section>
-
-<!-- Four -->
-    <section id="four" class="wrapper section-move style1 special fade-up">
-        <div class="container">
-            <header class="major">
-                <h2>مجالات أخرى من نشاطات سماحة الشيخ أحمد كفتارو</h2>
-                <p>شهادات وتوثيقات من أنشطته في محافل العالم الإسلامي</p>
-            </header>
-            <div class="box alt">
-                <div class="row gtr-uniform">
-                    <section class="col-4 col-6-medium col-12-xsmall">
-                        <span class="icon solid alt major fa-book"></span>
-                        <h3>كتب ومؤلفات الشيخ</h3>
-                        <p>استعرض أهم مؤلفات سماحة الشيخ أحمد كفتارو التي أثرت في الفقه والتفسير.</p>
-                    </section>
-                    <section class="col-4 col-6-medium col-12-xsmall">
-                        <span class="icon solid alt major fa-globe"></span>
-                        <h3>المؤتمرات الدولية</h3>
-                        <p>حضور سماحته في المؤتمرات الدينية والثقافية الكبرى حول العالم.</p>
-                    </section>
-                    <section class="col-4 col-6-medium col-12-xsmall">
-                        <span class="icon solid alt major fa-users"></span>
-                        <h3>الدروس والمحاضرات</h3>
-                        <p>الدروس التي ألقيت في المساجد والجامعات حول العالم.</p>
-                    </section>
-                </div>
-            </div>
-            <footer class="major">
-                <ul class="actions special">
-                    <li><a href="#" class="button">اكتشف المزيد</a></li>
-                </ul>
-            </footer>
-        </div>
-    </section>
-
-<!-- Five -->
-    <section id="five" class="wrapper section-move style2 special fade">
-        <div class="container">
-            <header>
-                <h2>انضموا إلى قائمة المتابعين</h2>
-                <p>تابعوا آخر أخبار سماحة الشيخ أحمد كفتارو وكل ما يتعلق بأنشطته العلمية والدعوية</p>
-            </header>
-            <form method="post" action="#" class="cta">
-                <div class="row gtr-uniform gtr-50">
-                    <div class="col-8 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
-                    <div class="col-4 col-12-xsmall"><input type="submit" value="اشترك الآن" class="fit primary" /></div>
-                </div>
-            </form>
-        </div>
-    </section>
-	{% endblock content %}
-    <!-- Scripts -->
-	<script src="/ast/js/jquery.min.js"></script>
-	<script src="/ast/js/jquery.scrolly.min.js"></script>
-	<script src="/ast/js/jquery.dropotron.min.js"></script>
-	<script src="/ast/js/jquery.scrollex.min.js"></script>
-	<script src="/ast/js/browser.min.js"></script>
-	<script src="/ast/js/breakpoints.min.js"></script>
-	<script src="/ast/js/util.js"></script>
-	<script src="/ast/JS/main.js"></script>
-    <script src="/ast/CSS/main.css"></script>
+  </div>
 </div>
+<!-- End Preloader -->
 
-{% include 'home/Footer.html' %}
+<!-- منطقة السلايدر -->
+<section class="slider">
+  <div class="hero-slider">
+    <!-- بداية سلايدر واحد -->
+    <div class="single-slider" style="background-image:url('/media/photo/4Z3A3010.JPG'); height: 800px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="text">
+              <h1>الشيخ <span>أحمد كفتارو</span> رمز للإيمان والعلم <span>والعطاء!</span></h1>
+              <p>تعرف على مسيرة الشيخ أحمد كفتارو، العالم المربي الذي أثرى الفكر الإسلامي وساهم في نشر العلم والخير.</p>
+              <div class="button">
+                <a href="#" class="btn">اقرأ المزيد</a>
+                <a href="#" class="btn primary">تعرف على مسيرته</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- نهاية سلايدر واحد -->
+    <!-- بداية سلايدر واحد -->
+    <div class="single-slider" style="background-image:url('/media/photo/mics.JPG')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="text">
+              <h1>إرث <span>الشيخ كفتارو</span> في نشر <span>القيم الإسلامية</span></h1>
+              <p>الشيخ أحمد كفتارو أسس رؤية متكاملة لتجديد الفكر الإسلامي والحوار بين الثقافات.</p>
+              <div class="button">
+                <a href="#" class="btn">اقرأ المزيد</a>
+                <a href="#" class="btn primary">عن الشيخ كفتارو</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- نهاية سلايدر واحد -->
+    <!-- بداية سلايدر واحد -->
+    <div class="single-slider" style="background-image:url('/media/photo/section 1.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="text">
+              <h1>تعاليم <span>الشيخ أحمد كفتارو</span> <span>في خدمة الإنسانية!</span></h1>
+              <p>اكتشف كيف ألهمت أفكار الشيخ كفتارو الأجيال الجديدة لتحقيق التوازن بين الدين والحياة.</p>
+              <div class="button">
+                <a href="#" class="btn">اقرأ المزيد</a>
+                <a href="#" class="btn primary">اتصل بنا</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- نهاية سلايدر واحد -->
+  </div>
+</section>
+<!--/ نهاية منطقة السلايدر -->
+<style>
+  .single-schedule .icon {
+    position: relative;
+    top: 130px;
+  }
+</style>  
+
+  <!-- Start Schedule Area -->
+<section class="schedule">
+  <div class="container">
+    <div class="schedule-inner">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-12">
+          <!-- single-schedule -->
+          <div class="single-schedule first wow fadeInUp" data-wow-delay="1s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInUp;border-radius: 50px 10px 50px 10px;">
+            <div class="inner">
+              <div class="icon">
+                <i class="fa fa-video-camera"></i>
+              </div>
+              <div class="single-content">
+                <span>مشاهدة</span>
+                <h4>فيديوهات الشيخ كفتارو</h4>
+                <p>
+                  استمتع بمشاهدة محاضرات ودروس الشيخ أحمد كفتارو المصورة التي تتناول موضوعات الإيمان والحياة.
+                </p>
+                <a href="#">مشاهدة الفيديوهات<i class="fa fa-long-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+          <!-- single-schedule -->
+          <div class="single-schedule middle wow fadeInUp" data-wow-delay="1.2s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInUp; border-radius: 50px 10px 50px 10px;">
+            <div class="inner">
+              <div class="icon">
+                <i class="fa fa-picture-o"></i>
+              </div>
+              <div class="single-content">
+                <span>معرض الصور</span>
+                <h4>صور من حياة الشيخ</h4>
+                <p>
+                  اكتشف مجموعة من الصور النادرة والمميزة التي توثق مسيرة الشيخ أحمد كفتارو في الدعوة والتعليم.
+                </p>
+                <a href="#">عرض الصور<i class="fa fa-long-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-12">
+          <!-- single-schedule -->
+          <div class="single-schedule last wow fadeInUp" data-wow-delay="1.4s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInUp; border-radius: 50px 10px 50px 10px;">
+            <div class="inner">
+              <div class="icon">
+                <i class="fa fa-microphone"></i>
+              </div>
+              <div class="single-content">
+                <span>استماع</span>
+                <h4>الدروس الصوتية</h4>
+                <p>
+                  استمع إلى سلسلة من الدروس الصوتية الملهمة للشيخ كفتارو التي تعزز الفهم العميق للدين والحياة.
+                </p>
+                <a href="#">استمع الآن<i class="fa fa-long-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/End Start Schedule Area -->
+
+<!-- Start portfolio -->
+<section class="portfolio section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title">
+          <h2>أهم دروس الشيخ أحمد كفتارو</h2>
+          <img src="/media/img/rangoli.png" width="50" alt="#">
+          <p>استكشف مجموعة من الدروس القيمة التي قدمها الشيخ أحمد كفتارو في مختلف المواضيع الروحية والعلمية.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-12">
+        <div class="owl-carousel portfolio-slider">
+          <div class="single-pf wow fadeIn" data-wow-delay="0.2s" data-wow-duration="0.8s" style="visibility: visible; animation-duration: 0.8s; animation-delay: 1.4s; animation-name: fadeIn;">
+            <img src="https://i.ytimg.com/vi/QebpVOS7El0/maxresdefault.jpg" alt="#">
+            <a href="portfolio-details.html" class="btn">عرض التفاصيل</a>
+          </div>
+          <div class="single-pf wow fadeIn" data-wow-delay="0.4s" data-wow-duration="0.8s" style="visibility: visible; animation-duration: 0.8s; animation-delay: 1.6s; animation-name: fadeIn;">
+            <img src="https://i.ytimg.com/vi/81nFPqYtja4/maxresdefault.jpg" alt="#">
+            <a href="portfolio-details.html" class="btn">عرض التفاصيل</a>
+          </div>
+          <div class="single-pf wow fadeIn" data-wow-delay="0.6s" data-wow-duration="0.8s" style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeIn;">
+            <img src="https://i.ytimg.com/vi/cn0lp2ASUTs/maxresdefault.jpg" alt="#">
+            <a href="portfolio-details.html" class="btn">عرض التفاصيل</a>
+          </div>
+          <div class="single-pf wow fadeIn" data-wow-delay="0.8s" data-wow-duration="0.8s" style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.4s; animation-name: fadeIn;">
+            <img src="https://i.ytimg.com/vi/574e9mRfCOg/maxresdefault.jpg" alt="#">
+            <a href="portfolio-details.html" class="btn">عرض التفاصيل</a>
+          </div>
+          <div class="single-pf wow fadeIn" data-wow-delay="1s" data-wow-duration="0.8s" style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.6s; animation-name: fadeIn;">
+            <img src="https://i.ytimg.com/vi/QebpVOS7El0/maxresdefault.jpg" alt="#">
+            <a href="portfolio-details.html" class="btn">عرض التفاصيل</a>
+          </div>
+          <div class="single-pf wow fadeIn" data-wow-delay="1.2s" data-wow-duration="0.8s" style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.8s; animation-name: fadeIn;">
+            <img src="https://i.ytimg.com/vi/81nFPqYtja4/maxresdefault.jpg" alt="#">
+            <a href="portfolio-details.html" class="btn">عرض التفاصيل</a>
+          </div>
+          <div class="single-pf wow fadeIn" data-wow-delay="1.4s" data-wow-duration="0.8s" style="visibility: visible; animation-duration: 0.8s; animation-delay: 1s; animation-name: fadeIn;">
+            <img src="https://i.ytimg.com/vi/cn0lp2ASUTs/maxresdefault.jpg" alt="#">
+            <a href="portfolio-details.html" class="btn">عرض التفاصيل</a>
+          </div>
+          <div class="single-pf wow fadeIn" data-wow-delay="1.6s" data-wow-duration="0.8s" style="visibility: visible; animation-duration: 0.8s; animation-delay: 1.2s; animation-name: fadeIn;">
+            <img src="https://i.ytimg.com/vi/574e9mRfCOg/maxresdefault.jpg" alt="#">
+            <a href="portfolio-details.html" class="btn">عرض التفاصيل</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ End portfolio -->
+
+  <!-- Start Fun-facts -->
+<div id="fun-facts" class="fun-facts section overlay">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Fun -->
+        <div class="single-fun wow fadeIn" data-wow-delay="0.4s" data-wow-duration="0.5s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.4s; animation-name: fadeIn;">
+          <i class="icofont icofont-audio"></i>
+          <div class="content">
+            <span class="counter">1200</span>
+            <p>دروس صوتية</p>
+          </div>
+        </div>
+        <!-- End Single Fun -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Fun -->
+        <div class="single-fun wow fadeIn" data-wow-delay="0.6s" data-wow-duration="0.5s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.6s; animation-name: fadeIn;">
+          <i class="icofont icofont-video"></i>
+          <div class="content">
+            <span class="counter">850</span>
+            <p>فيديوهات تعليمية</p>
+          </div>
+        </div>
+        <!-- End Single Fun -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Fun -->
+        <div class="single-fun wow fadeIn" data-wow-delay="0.8s" data-wow-duration="0.5s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.8s; animation-name: fadeIn;">
+          <i class="icofont icofont-image"></i>
+          <div class="content">
+            <span class="counter">3000</span>
+            <p>صور نادرة</p>
+          </div>
+        </div>
+        <!-- End Single Fun -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Fun -->
+        <div class="single-fun wow fadeIn" data-wow-delay="1s" data-wow-duration="0.5s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 1s; animation-name: fadeIn;">
+          <i class="icofont icofont-calendar"></i>
+          <div class="content">
+            <span class="counter">50</span>
+            <p>سنوات من الإرث</p>
+          </div>
+        </div>
+        <!-- End Single Fun -->
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ End Fun-facts -->
+
+
+  <!-- Start Why choose -->
+<section class="why-choose section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title">
+          <h2>تعرف على فريق إدارة الموقع</h2>
+          <img src="/media/img/rangoli.png" width="50" alt="صورة توضيحية">
+          <p>
+            نحن فريق متخصص نسعى للحفاظ على إرث الشيخ أحمد كفتارو ونشره للأجيال القادمة من خلال هذا الموقع المميز.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-12">
+        <!-- Start Choose Left -->
+        <div class="choose-left">
+          <h3>من نحن</h3>
+          <p>
+            نحن مجموعة من الباحثين والمتخصصين في مجالات متعددة، نعمل معًا لتوثيق وحفظ إرث الشيخ أحمد كفتارو ونشره عالميًا.
+          </p>
+          <p>
+            نؤمن بأن الإرث الروحي والعلمي للشيخ يشكل قيمة عظيمة للإنسانية، ونسعى لتقديمه بطريقة حديثة وشاملة.
+          </p>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul class="list">
+                <li><i class="fa fa-caret-right"></i>فريق متخصص في الأبحاث.</li>
+                <li><i class="fa fa-caret-right"></i>خبراء في تصميم المواقع.</li>
+                <li><i class="fa fa-caret-right"></i>دعم فني مستمر.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul class="list">
+                <li><i class="fa fa-caret-right"></i>محترفون في المونتاج والتصميم.</li>
+                <li><i class="fa fa-caret-right"></i>فريق ترجمة لنشر الإرث عالميًا.</li>
+                <li><i class="fa fa-caret-right"></i>إدارة محتوى متميزة.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End Choose Left -->
+      </div>
+      <div class="col-lg-6 col-12">
+        <!-- Start Choose Rights -->
+        <div class="choose-right">
+          <div class="video-image">
+            <!-- Video Animation -->
+            <div class="promo-video">
+              <div class="waves-block">
+                <div class="waves wave-1"></div>
+                <div class="waves wave-2"></div>
+                <div class="waves wave-3"></div>
+              </div>
+            </div>
+            <!--/ End Video Animation -->
+            <a href="https://www.youtube.com/watch?v=SMgGHy8-Tyk" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
+          </div>
+        </div>
+        <!-- End Choose Rights -->
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ End Why choose -->
+
+
+  <!-- Start Call to action -->
+<section class="call-action overlay" data-stellar-background-ratio="0.5" style="background-position: -25px -1303.15px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-12">
+        <div class="content">
+          <h2>هل تمتلكون مواد قيمة عن إرث الشيخ أحمد كفتارو؟ تواصلوا معنا الآن</h2>
+          <p>
+            نسعى للحفاظ على إرث الشيخ ونشره للأجيال القادمة. إذا كان لديكم تسجيلات، صور، أو أي مواد أخرى تودون مشاركتها، يرجى التواصل معنا.
+          </p>
+          <div class="button">
+            <a href="contact.html" class="btn">اتصل بنا الآن</a>
+            <a href="learn-more.html" class="btn second">تعرف على المزيد<i class="fa fa-long-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ End Call to action -->
+
+  <!-- Start Departments -->
+<section class="departments section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title" style="margin-bottom: 0px;">
+          <h2>قصص نادرة من مسيرة الشيخ أحمد كفتارو</h2>
+          <img src="/media/img/rangoli.png" width="50" alt="#">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="department-tab tab-menu">
+          <!-- Tab Menu -->
+          <div class="list-group nav nav-tabs" id="list-tab" role="tablist">
+            <a class="list-group-item nav-item active" data-bs-toggle="list" href="#tab1" role="tab" aria-selected="true">
+              <i class="icofont-book"></i><span class="first">قصة الدعوة الأولى</span><span class="second">الحكمة في الحوار</span>
+            </a>
+            <a class="list-group-item" data-bs-toggle="list" href="#tab2" role="tab" aria-selected="false" tabindex="-1">
+              <i class="icofont-globe"></i><span class="first">قصة نشر الدعوة</span><span class="second">رحلة إلى الخارج</span>
+            </a>
+            <a class="list-group-item" data-bs-toggle="list" href="#tab3" role="tab" aria-selected="false" tabindex="-1">
+              <i class="icofont-hand"></i><span class="first">موقف إنساني</span><span class="second">التواضع والرحمة</span>
+            </a>
+          </div>
+          <!-- Tab Details -->
+          <div class="tab-details">
+            <div class="tab-content" id="nav-tabContent">
+              <!-- Tab One -->
+              <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="department-left">
+                      <h3>قصة الدعوة الأولى</h3>
+                      <p class="p1">
+                        "في بداية مسيرته، واجه الشيخ أحمد كفتارو مواقف تتطلب الحكمة..."
+                      </p>
+                      <p>
+                        كان الشيخ يركز على الحوار الهادئ والإقناع اللطيف. في إحدى المناسبات، نجح في تغيير موقف شخص معارض للدعوة باستخدام أسلوب الحوار الودي.
+                      </p>
+                      <ul class="list">
+                        <li><i class="fa fa-check"></i>تعزيز قيم التسامح والاحترام.</li>
+                        <li><i class="fa fa-check"></i>الاعتماد على الحكمة في معالجة الأمور.</li>
+                        <li><i class="fa fa-check"></i>إظهار الصورة المشرقة للإسلام.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="department-right">
+                      <img src="/media/photo/11.jpg" alt="#" width="400" height="400">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Tab Two -->
+              <div class="tab-pane fade" id="tab2" role="tabpanel">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="department-left">
+                      <h3>قصة نشر الدعوة</h3>
+                      <p class="p1">
+                        "خلال إحدى رحلاته إلى الغرب، التقى الشيخ بشخصيات هامة..."
+                      </p>
+                      <p>
+                        كانت رحلته فرصة لتقديم الإسلام كدين سلام. استخدم الشيخ الحوار الثقافي لنشر الدعوة وإظهار سماحة الدين الإسلامي.
+                      </p>
+                      <ul class="list">
+                        <li><i class="fa fa-check"></i>التواصل مع ثقافات متعددة.</li>
+                        <li><i class="fa fa-check"></i>إبراز قيم التسامح في الإسلام.</li>
+                        <li><i class="fa fa-check"></i>تعزيز الحوار بين الأديان.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="department-right">
+                      <img src="/media/photo/section 2.jpg" alt="#">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Tab Three -->
+              <div class="tab-pane fade" id="tab3" role="tabpanel">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="department-left">
+                      <h3>موقف إنساني</h3>
+                      <p class="p1">
+                        "في إحدى القرى النائية، قام الشيخ بزيارة عائلة محتاجة..."
+                      </p>
+                      <p>
+                        بكرم وسخاء، قدم الشيخ الدعم اللازم لتلك العائلة دون الإعلان عن ذلك. كانت هذه المواقف تجسد أخلاقه العالية وتواضعه.
+                      </p>
+                      <ul class="list">
+                        <li><i class="fa fa-check"></i>دعم المحتاجين بصمت.</li>
+                        <li><i class="fa fa-check"></i>تعزيز القيم الإنسانية في المجتمع.</li>
+                        <li><i class="fa fa-check"></i>التواضع والرحمة في التعامل مع الآخرين.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="department-right">
+                      <img src="/media/img/story3.jpg" alt="#">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Tab Details -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Departments -->
+
+
+  <!-- Start Team -->
+<section id="team" class="team section overlay" data-stellar-background-ratio="0.5" style="background-position: -25px -3615.14px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title">
+          <h2>شيوخ تتلمذوا على يد الشيخ أحمد كفتارو</h2>
+          <img src="/media/img/section-img2.png" alt="#">
+          <p>
+            هؤلاء الشيوخ حملوا رسالة الشيخ أحمد كفتارو وساهموا في نشر العلم والإرشاد في مختلف المجالات.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-12" data-tilt="">
+        <!-- Single Team -->
+        <div class="single-team wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInUp;">
+          <div class="t-head">
+            <img src="/media/img/الشيخ رمضان.jpg" alt="#">
+            <div class="t-icon">
+              <a href="appointment.html" class="btn">تعرف على المزيد</a>
+            </div>
+          </div>
+          <div class="t-bottom">
+            <p>شيخ في علوم الفقه</p>
+            <h2><a href="team-details.html">الشيخ محمد علي</a></h2>
+          </div>
+        </div>
+        <!-- End Single Team -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12" data-tilt="">
+        <!-- Single Team -->
+        <div class="single-team wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInUp;">
+          <!-- Team Head -->
+          <div class="t-head">
+            <img src="/media/img/الشيخ عمر.jpg" alt="#">
+            <div class="t-icon">
+              <a href="appointment.html" class="btn">تعرف على المزيد</a>
+            </div>
+          </div>
+          <!-- Team Bottom -->
+          <div class="t-bottom">
+            <p>داعية إسلامي</p>
+            <h2><a href="team-details.html">الشيخ أحمد نور</a></h2>
+          </div>
+          <!--/ End Team Bottom -->
+        </div>
+        <!-- End Single Team -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12" data-tilt="">
+        <!-- Single Team -->
+        <div class="single-team wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInUp;">
+          <!-- Team Head -->
+          <div class="t-head">
+            <img src="/media/img/الشيخ بشير الباني.jpg" alt="#">
+            <div class="t-icon">
+              <a href="appointment.html" class="btn">تعرف على المزيد</a>
+            </div>
+          </div>
+          <!-- Team Bottom -->
+          <div class="t-bottom">
+            <p>متخصص في علوم الحديث</p>
+            <h2><a href="team-details.html">الشيخ خالد العلي</a></h2>
+          </div>
+          <!--/ End Team Bottom -->
+        </div>
+        <!-- End Single Team -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-12" data-tilt="">
+        <!-- Single Team -->
+        <div class="single-team wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInUp;">
+          <!-- Team Head -->
+          <div class="t-head">
+            <img src="/media/img/الشيخ رجب.jpg" alt="#">
+            <div class="t-icon">
+              <a href="appointment.html" class="btn">تعرف على المزيد</a>
+            </div>
+          </div>
+          <!-- Team Bottom -->
+          <div class="t-bottom">
+            <p>متخصص في الإرشاد الديني</p>
+            <h2><a href="team-details.html">الشيخ سامي الأيوبي</a></h2>
+          </div>
+          <!--/ End Team Bottom -->
+        </div>
+        <!-- End Single Team -->
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ End Team -->
+
+<!-- Start Feautes -->
+<section class="Feautes index2 section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title">
+          <h2>نحن دائمًا جاهزون لنقدم لك المصداقية والدقة</h2>
+          <img src="/media/img/rangoli.png" width="50" alt="#">
+          <p>
+            نسعى جاهدين لتقديم المعلومات الدقيقة والخدمات الموثوقة التي تعزز من تجربة المستخدم وتلبي توقعاته.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-12">
+        <!-- Start Single features -->
+        <div class="single-features first wow fadeIn" data-wow-delay="0.4s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeIn;">
+          <div class="signle-icon">
+            <i class="icofont icofont-check-circled"></i>
+          </div>
+          <h3>مصداقية عالية</h3>
+          <p>
+            نضمن تقديم معلومات موثوقة ودقيقة في جميع أقسام الموقع لتلبية احتياجات المستخدمين بثقة.
+          </p>
+        </div>
+        <!-- End Single features -->
+      </div>
+      <div class="col-lg-4 col-12">
+        <!-- Start Single features -->
+        <div class="single-features wow fadeIn" data-wow-delay="0.6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeIn;">
+          <div class="signle-icon">
+            <i class="icofont icofont-gear"></i>
+          </div>
+          <h3>دقة في العمل</h3>
+          <p>
+            نولي اهتمامًا كبيرًا بالتفاصيل لضمان تنفيذ كل جانب من جوانب العمل بأعلى مستويات الدقة والجودة.
+          </p>
+        </div>
+        <!-- End Single features -->
+      </div>
+      <div class="col-lg-4 col-12">
+        <!-- Start Single features -->
+        <div class="single-features last wow fadeIn" data-wow-delay="0.6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeIn;">
+          <div class="signle-icon">
+            <i class="icofont icofont-users-alt-5"></i>
+          </div>
+          <h3>دعم مستمر</h3>
+          <p>
+            فريقنا دائمًا على استعداد لمساعدتك والإجابة على استفساراتك، مع توفير تجربة استخدام مميزة.
+          </p>
+        </div>
+        <!-- End Single features -->
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ End Feautes -->
+
+
+  
+
+  <!-- Start clients -->
+  <div class="clients overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-12">
+          <div class="owl-carousel clients-slider owl-theme owl-loaded">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-3438px, 0px, 0px); transition: 0.3s; width: 5348px;"><div class="owl-item cloned" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi3.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Naimur Rahman</h4>
+            </div></div><div class="owl-item cloned" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi1.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Ruhfayed Sakib</h4>
+            </div></div><div class="owl-item cloned" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi2.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Naimur Rahman</h4>
+            </div></div><div class="owl-item" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi1.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Ruhfayed Sakib</h4>
+            </div></div><div class="owl-item" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi2.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Shakil Hossain</h4>
+            </div></div><div class="owl-item" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi3.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Naimur Rahman</h4>
+            </div></div><div class="owl-item" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi1.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Ruhfayed Sakib</h4>
+            </div></div><div class="owl-item" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi2.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Shakil Hossain</h4>
+            </div></div><div class="owl-item" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi3.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Naimur Rahman</h4>
+            </div></div><div class="owl-item active" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi1.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Ruhfayed Sakib</h4>
+            </div></div><div class="owl-item active" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi2.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Naimur Rahman</h4>
+            </div></div><div class="owl-item cloned active" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi1.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Ruhfayed Sakib</h4>
+            </div></div><div class="owl-item cloned" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi2.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Shakil Hossain</h4>
+            </div></div><div class="owl-item cloned" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
+              <img src="img/testi3.png" alt="#">
+              <p>
+                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
+                Aliquam nec suscipit turpis, vel pretium eros.
+              </p>
+              <h4 class="name">Naimur Rahman</h4>
+            </div></div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style="display: none;">prev</div><div class="owl-next" style="display: none;">next</div></div><div class="owl-dots" style="display: none;"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/Ens clients -->
+
+  <!-- Start Blog Area -->
+  <section class="blog section" id="blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-title">
+            <h2>أهم المقالات عن الشيخ أحمد كفتارو</h2>
+            <img src="/media/img/rangoli.png" width="50" alt="#">
+            <p>
+              اكتشف أبرز المحطات في حياة الشيخ أحمد كفتارو، وإسهاماته في تعزيز الفكر الإسلامي ونشر الدعوة.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-12">
+          <!-- Single Blog -->
+          <div class="single-news">
+            <div class="news-head">
+              <img src="/media/img/blog3.jpg" alt="الشيخ أحمد كفتارو">
+            </div>
+            <div class="news-body">
+              <div class="news-content">
+                <div class="date">10 كانون الثاني، 2021</div>
+                <h2>
+                  <a href="blog-single.html">محطات رئيسية في حياة الشيخ أحمد كفتارو</a>
+                </h2>
+                <p class="text">
+                  تعرف على أبرز مراحل حياة الشيخ أحمد كفتارو، من نشأته إلى قيادته لمسجد أبي النور.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Blog -->
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+          <!-- Single Blog -->
+          <div class="single-news">
+            <div class="news-head">
+              <img src="/media/img/blog3.jpg" alt="مسجد أبي النور">
+            </div>
+            <div class="news-body">
+              <div class="news-content">
+                <div class="date">22 آذار، 2022</div>
+                <h2>
+                  <a href="blog-single.html">دور الشيخ كفتارو في نشر الفكر الإسلامي المعتدل</a>
+                </h2>
+                <p class="text">
+                  إضاءة على رؤية الشيخ أحمد كفتارو في تعزيز الوسطية، وكيف أثر في المجتمع الإسلامي.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Blog -->
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+          <!-- Single Blog -->
+          <div class="single-news">
+            <div class="news-head">
+              <img src="/media/img/blog3.jpg" alt="مجتمع الشيخ كفتارو">
+            </div>
+            <div class="news-body">
+              <div class="news-content">
+                <div class="date">15 تموز، 2023</div>
+                <h2>
+                  <a href="blog-single.html">إرث الشيخ أحمد كفتارو وتحديات العصر</a>
+                </h2>
+                <p class="text">
+                  استكشف كيف لا تزال أفكار الشيخ كفتارو تلهم الأجيال في مواجهة تحديات العصر الحديث.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Blog -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Blog Area -->
+
+<a id="scrollUp" href="#top" style="display: none; position: fixed; z-index: 2147483647;"><span><i class="fa fa-angle-up"></i></span></a><div class="datepicker dropdown-menu"><div class="datepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">December 2024</th><th class="next">›</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day  old">24</td><td class="day  old">25</td><td class="day  old">26</td><td class="day  old">27</td><td class="day  old">28</td><td class="day  old">29</td><td class="day  old">30</td></tr><tr><td class="day ">1</td><td class="day ">2</td><td class="day ">3</td><td class="day ">4</td><td class="day ">5</td><td class="day ">6</td><td class="day ">7</td></tr><tr><td class="day ">8</td><td class="day ">9</td><td class="day ">10</td><td class="day ">11</td><td class="day ">12</td><td class="day ">13</td><td class="day ">14</td></tr><tr><td class="day ">15</td><td class="day ">16</td><td class="day  active">17</td><td class="day ">18</td><td class="day ">19</td><td class="day ">20</td><td class="day ">21</td></tr><tr><td class="day ">22</td><td class="day ">23</td><td class="day ">24</td><td class="day ">25</td><td class="day ">26</td><td class="day ">27</td><td class="day ">28</td></tr><tr><td class="day ">29</td><td class="day ">30</td><td class="day ">31</td><td class="day  new">1</td><td class="day  new">2</td><td class="day  new">3</td><td class="day  new">4</td></tr></tbody></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2024</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month active">Dec</span></td></tr></tbody></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2020-2029</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2019</span><span class="year">2020</span><span class="year">2021</span><span class="year">2022</span><span class="year">2023</span><span class="year active">2024</span><span class="year">2025</span><span class="year">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year old">2030</span></td></tr></tbody></table></div></div>
 </body>
-</html>
+{% endblock content%}

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <style>
-	body {
-        background-color: rgba(28, 29, 38, 0.1);
-    }
-</style>
-</head>
+<html lang=en>
 <body>
+{% include 'home/header.html' %}
+{% include 'home/back.html' %}
+
+	{% block content %}
+	{% endblock content %}
 
 </body>
+<footer>
+{% include 'home/Footer.html' %}
+{% include 'home/JS_group.html' %}
+</footer>
 </html>
