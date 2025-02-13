@@ -882,7 +882,7 @@ body {
   padding: 120px 0;
 }
 .fun-facts {
-  background: url("/media/photo/image.png");
+  background: url("/media/photo/image.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -4622,12 +4622,18 @@ body {
     margin-left: 18px;
     padding-right: 36px;
   }
+  .slider-header{
+    margin-top: 50px;
+  }
 
 }
 @media only screen and (max-width: 767px) {
   .rtl .header .top-link,
   .rtl .header .top-contact {
     float: none;
+  }
+  .slider-header{
+    margin-top: 50px;
   }
   .rtl .Feautes .single-features.first::before,
   .rtl .Feautes .single-features.last::before {

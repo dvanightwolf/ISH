@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Title -->
-<title>Mediplus - Medical and Doctor HTML Template.</title>
+<title>صوفية القرآن</title>
 
 <!-- Favicon -->
 <link rel="icon" href="/media/img/favicon.png">
@@ -122,7 +122,7 @@
         <div class="col-lg-3 col-md-3 col-12">
           <!-- شعار الموقع -->
           <div class="logo">
-            <a href="index.html"><img src="/media/img/LOGO.svg" alt="شعار الموقع" width="200"></a>
+            <a href="{% url 'home' %}"><img src="/media/img/LOGO.svg" alt="شعار الموقع" width="200"></a>
           </div>
           <!-- نهاية شعار الموقع -->
           <!-- التنقل للجوال -->
@@ -131,7 +131,7 @@
           </div>
           <!-- نهاية التنقل للجوال -->
         </div>
-        <div class="col-lg-7 col-md-9 col-12">
+        <div class="col-lg-6 col-md-9 col-12">
           <!-- القائمة الرئيسية -->
           <div class="main-menu">
             <nav class="navigation">
@@ -140,35 +140,35 @@
                   <a href="#">الرئيسية <i class="icofont-rounded-down"></i></a>
                   <ul class="dropdown">
                     <li class="active">
-                      <a href="index.html">الصفحة الرئيسية</a>
+                      <a href="{% url 'home' %}">الصفحة الرئيسية</a>
                     </li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">إرث الشيخ <i class="icofont-rounded-down"></i></a>
                   <ul class="dropdown">
-                    <li><a href="audio-lessons.html">الدروس الصوتية</a></li>
+                    <li><a href="{% url 'audio:audio_list' %}">الدروس الصوتية</a></li>
                     <li><a href="{% url 'video:video_list' %}">الفيديوهات التعليمية</a></li>
-                    <li><a href="photo-gallery.html">معرض الصور</a></li>
+                    <li><a href="{% url 'photo:photo_list' %}">معرض الصور</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">حول الشيخ <i class="icofont-rounded-down"></i></a>
                   <ul class="dropdown">
-                    <li><a href="biography.html">السيرة الذاتية</a></li>
-                    <li><a href="quotes.html">اقتباسات الشيخ</a></li>
-                    <li><a href="legacy-impact.html">أثر الإرث</a></li>
+                    <li><a href="#">السيرة الذاتية</a></li>
+                    <li><a href="#">اقتباسات الشيخ</a></li>
+                    <li><a href="#">أثر الإرث</a></li>
                   </ul>
                 </li>
-                <li><a href="contact.html">اتصل بنا</a></li>
+                <li><a href="#">اتصل بنا</a></li>
               </ul>
             </nav>
           </div>
           <!--/ نهاية القائمة الرئيسية -->
         </div>
-        <div class="col-lg-2 col-12">
+        <div class="col-lg-3 col-12">
           <div class="get-quote">
-            <a href="legacy.html" class="btn">استكشف الإرث</a>
+            <a href="{% url 'account:login' %}" class="btn">تسجيل الدخول</a>
           </div>
         </div>
       </div>

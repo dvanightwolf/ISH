@@ -1,5 +1,14 @@
 {% extends "home/home.html" %}
 {% block content%}
+<head>
+  <style>
+    @media only screen and (max-width: 767px) {
+  .slider-header{
+    margin-top: 50%;
+  }
+}
+  </style>
+</head>
 <body class="rtl">
 <!-- Preloader -->
 <div class="preloader">
@@ -19,10 +28,10 @@
 <section class="slider">
   <div class="hero-slider">
     <!-- بداية سلايدر واحد -->
-    <div class="single-slider" style="background-image:url('/media/photo/4Z3A3010.JPG'); height: 800px;">
+    <div class="single-slider" style="background-image:url('/media/photo/4Z3A3010.jpg'); height: 800px;">
       <div class="container">
         <div class="row">
-          <div class="col-lg-7">
+          <div class="col-lg-7 slider-header">
             <div class="text">
               <h1>الشيخ <span>أحمد كفتارو</span> رمز للإيمان والعلم <span>والعطاء!</span></h1>
               <p>تعرف على مسيرة الشيخ أحمد كفتارو، العالم المربي الذي أثرى الفكر الإسلامي وساهم في نشر العلم والخير.</p>
@@ -40,7 +49,7 @@
     <div class="single-slider" style="background-image:url('/media/photo/mics.JPG')">
       <div class="container">
         <div class="row">
-          <div class="col-lg-7">
+          <div class="col-lg-7 slider-header">
             <div class="text">
               <h1>إرث <span>الشيخ كفتارو</span> في نشر <span>القيم الإسلامية</span></h1>
               <p>الشيخ أحمد كفتارو أسس رؤية متكاملة لتجديد الفكر الإسلامي والحوار بين الثقافات.</p>
@@ -58,7 +67,7 @@
     <div class="single-slider" style="background-image:url('/media/photo/section 1.jpg')">
       <div class="container">
         <div class="row">
-          <div class="col-lg-7">
+          <div class="col-lg-7 slider-header">
             <div class="text">
               <h1>تعاليم <span>الشيخ أحمد كفتارو</span> <span>في خدمة الإنسانية!</span></h1>
               <p>اكتشف كيف ألهمت أفكار الشيخ كفتارو الأجيال الجديدة لتحقيق التوازن بين الدين والحياة.</p>
@@ -471,7 +480,7 @@
       <div class="col-lg-12">
         <div class="section-title">
           <h2>شيوخ تتلمذوا على يد الشيخ أحمد كفتارو</h2>
-          <img src="/media/img/section-img2.png" alt="#">
+          <img src="/media/img/rangoli white.png" alt="#" width="50px">
           <p>
             هؤلاء الشيوخ حملوا رسالة الشيخ أحمد كفتارو وساهموا في نشر العلم والإرشاد في مختلف المجالات.
           </p>
@@ -557,188 +566,6 @@
 </section>
 <!--/ End Team -->
 
-<!-- Start Feautes -->
-<section class="Feautes index2 section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="section-title">
-          <h2>نحن دائمًا جاهزون لنقدم لك المصداقية والدقة</h2>
-          <img src="/media/img/rangoli.png" width="50" alt="#">
-          <p>
-            نسعى جاهدين لتقديم المعلومات الدقيقة والخدمات الموثوقة التي تعزز من تجربة المستخدم وتلبي توقعاته.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-12">
-        <!-- Start Single features -->
-        <div class="single-features first wow fadeIn" data-wow-delay="0.4s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeIn;">
-          <div class="signle-icon">
-            <i class="icofont icofont-check-circled"></i>
-          </div>
-          <h3>مصداقية عالية</h3>
-          <p>
-            نضمن تقديم معلومات موثوقة ودقيقة في جميع أقسام الموقع لتلبية احتياجات المستخدمين بثقة.
-          </p>
-        </div>
-        <!-- End Single features -->
-      </div>
-      <div class="col-lg-4 col-12">
-        <!-- Start Single features -->
-        <div class="single-features wow fadeIn" data-wow-delay="0.6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeIn;">
-          <div class="signle-icon">
-            <i class="icofont icofont-gear"></i>
-          </div>
-          <h3>دقة في العمل</h3>
-          <p>
-            نولي اهتمامًا كبيرًا بالتفاصيل لضمان تنفيذ كل جانب من جوانب العمل بأعلى مستويات الدقة والجودة.
-          </p>
-        </div>
-        <!-- End Single features -->
-      </div>
-      <div class="col-lg-4 col-12">
-        <!-- Start Single features -->
-        <div class="single-features last wow fadeIn" data-wow-delay="0.6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeIn;">
-          <div class="signle-icon">
-            <i class="icofont icofont-users-alt-5"></i>
-          </div>
-          <h3>دعم مستمر</h3>
-          <p>
-            فريقنا دائمًا على استعداد لمساعدتك والإجابة على استفساراتك، مع توفير تجربة استخدام مميزة.
-          </p>
-        </div>
-        <!-- End Single features -->
-      </div>
-    </div>
-  </div>
-</section>
-<!--/ End Feautes -->
-
-
-  
-
-  <!-- Start clients -->
-  <div class="clients overlay">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-12">
-          <div class="owl-carousel clients-slider owl-theme owl-loaded">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-3438px, 0px, 0px); transition: 0.3s; width: 5348px;"><div class="owl-item cloned" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi3.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Naimur Rahman</h4>
-            </div></div><div class="owl-item cloned" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi1.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Ruhfayed Sakib</h4>
-            </div></div><div class="owl-item cloned" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi2.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Naimur Rahman</h4>
-            </div></div><div class="owl-item" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi1.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Ruhfayed Sakib</h4>
-            </div></div><div class="owl-item" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi2.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Shakil Hossain</h4>
-            </div></div><div class="owl-item" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi3.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Naimur Rahman</h4>
-            </div></div><div class="owl-item" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi1.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Ruhfayed Sakib</h4>
-            </div></div><div class="owl-item" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi2.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Shakil Hossain</h4>
-            </div></div><div class="owl-item" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi3.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Naimur Rahman</h4>
-            </div></div><div class="owl-item active" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi1.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Ruhfayed Sakib</h4>
-            </div></div><div class="owl-item active" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi2.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Naimur Rahman</h4>
-            </div></div><div class="owl-item cloned active" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi1.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Ruhfayed Sakib</h4>
-            </div></div><div class="owl-item cloned" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi2.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Shakil Hossain</h4>
-            </div></div><div class="owl-item cloned" style="width: 382px; margin-right: 0px;"><div class="single-testimonial">
-              <img src="img/testi3.png" alt="#">
-              <p>
-                Lorem ipsum dolor sit amet consectetur eliet adipiscing.
-                Aliquam nec suscipit turpis, vel pretium eros.
-              </p>
-              <h4 class="name">Naimur Rahman</h4>
-            </div></div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style="display: none;">prev</div><div class="owl-next" style="display: none;">next</div></div><div class="owl-dots" style="display: none;"></div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--/Ens clients -->
-
   <!-- Start Blog Area -->
   <section class="blog section" id="blog">
     <div class="container">
@@ -758,7 +585,7 @@
           <!-- Single Blog -->
           <div class="single-news">
             <div class="news-head">
-              <img src="/media/img/blog3.jpg" alt="الشيخ أحمد كفتارو">
+              <img src="/media/photo/11.jpg" alt="الشيخ أحمد كفتارو">
             </div>
             <div class="news-body">
               <div class="news-content">
@@ -778,7 +605,7 @@
           <!-- Single Blog -->
           <div class="single-news">
             <div class="news-head">
-              <img src="/media/img/blog3.jpg" alt="مسجد أبي النور">
+              <img src="/media/photo/11.jpg" alt="مسجد أبي النور">
             </div>
             <div class="news-body">
               <div class="news-content">
@@ -798,7 +625,7 @@
           <!-- Single Blog -->
           <div class="single-news">
             <div class="news-head">
-              <img src="/media/img/blog3.jpg" alt="مجتمع الشيخ كفتارو">
+              <img src="/media/photo/11.jpg" alt="مجتمع الشيخ كفتارو">
             </div>
             <div class="news-body">
               <div class="news-content">

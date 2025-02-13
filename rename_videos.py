@@ -132,7 +132,7 @@ def rename_quran_files(directory, log_file):
                     if not os.path.isfile(old_path):
                         continue
                     match = re.match(r".*?(\d{6}).*", file_name)
-                    extention = file_name
+                    extention = file_name   
                     if match:
                         # surah_name = match.group(1).strip()
                         # ayat_number = match.group(2).strip()
