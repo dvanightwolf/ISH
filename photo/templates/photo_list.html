@@ -1,94 +1,240 @@
-{% extends 'temp_home.html' %}
+{% extends "home/home.html" %}
 {% block content %}
     {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="/ast/css/card style.css" rel="stylesheet">
-    <!--<script src="https://kit.fontawesome.com/d26b7c3f6e.js" crossorigin="anonymous"></script>-->
-
-    <meta charset="UTF-8">
-        <title>الدروس والمقاطع</title>
-
+    <!DOCTYPE html>
+    <html lang="en" >
+    <head>
+      <meta charset="UTF-8">
+      <title>صوفية القرآن - معرض الصور</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <style>
+        .card_image {
+            transition: transform 0.3s ease-in-out;
+        }
+        .card_image:hover,
+        .card_price:hover ~ .card_image {
+            transform: scale(1.02);
+        }
+    </style>
+    </head>
+    <body>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="gallery">
+        <ul class="grid">
+            {% for photo in photos %}
+            <li class="grid-item">
+                <div class="card" style="border: none;">
+                    <div class="card_image" onclick="showPhotoPopup('{{ photo.photo.url }}')">
+                        <img src="{{ photo.photo.url }}" alt="{{ photo.title }}">
+                        <div class="hover-text">{{ photo.title }}</div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+       
 
-        h1{
-            font-family: doublebubble_shadowregular;
-                font-weight: normal;
-                font-style: normal;
 
+<!-- Video Popup -->
+<div id="photoPopup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePhotoPopup()">&times;</span>
+        <img id="imageFrame" src="" alt="Popup Image">
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var grid = document.querySelector('.grid');
+        var msnry = new Masonry(grid, {
+            itemSelector: '.grid-item',
+            columnWidth: '.grid-item',
+            percentPosition: true
+        });
+    });
+    </script>
+    
+<!-- CSS -->
+<style>
+    .hover-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--main-color);
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 3%;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        z-index: 2;
+    }
+    
+    .card_image:hover .hover-text {
+        opacity: 1;
+    }
+
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px;
+    }
+    
+    .grid-item {
+        width: calc(20% - 15px); /* Adjust columns */
+        margin: 5px;
+    }
+
+    /* Medium screens (1000px and below) - 4 columns */
+    @media (max-width: 1000px) {
+        .grid-item {
+            width: calc(25% - 15px);
+            margin: 5px;
         }
-        .post:nth-child(even){
-            border: gold 2px solid;
+    }
+
+    /* Small screens (780px and below) - 2 columns */
+    @media (max-width: 780px) {
+        .grid-item {
+            width: calc(50% - 10px);
+            margin: 5px;
         }
-        .post:nth-child(odd){
-            border-right: #ff00ff 5px solid ;
-            border-bottom: magenta 5px solid;
+    }
+
+    /* Mobile screens (480px and below) - 1 column */
+    @media (max-width: 480px) {
+        .grid-item {
+            width: 100%;
+            margin: 5px 0;
         }
-        .cat {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      text-align: center;
-      border-radius: 5px;
-      background-color: gold;
-      font-size: 16px;
-      color: #9B111E;
-            align-self: flex-end;
-      }
-        button:hover {
-      background-color: gold;
-      }
-        .homeAnc{
-    text-decoration: none;
-    color: black;
+    }
+
+    .grid-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 2%;
+        display: block;
+    }
+    
+    /* Popup styles */
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 6.5%;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index:2;
+    }
+
+    .popup-content {
+        background: var(--main-color);
+        padding: 20px;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+        z-index: 10000; /* Ensures content is above popup background */
+    }
+
+    .popup img {
+        max-width: 100%;
+        max-height: 75vh;
+        border-radius: 5px;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    .card_image::after {
+        content: "";
+        position: absolute;
+        border-radius: 2%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--secondary-color); /* Green overlay with 40% opacity */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .card_image:hover::after {
+        opacity: 0.6; /* Show the overlay on hover */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .popup-content {
+            max-width: 95%;
+            max-height: 85%;
+        }
+    }
+
+    .play-button {
+    z-index: 1;
+    display: inline-flex;
+    justify-self: anchor-center;
+    margin-left: 5%;
+    margin-top: 20%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 16%;
+    height: 15%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%; /* Circular shape */
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-      /* div:nth-child(even){
-        border-right: orange 5px solid;border-top: orange 5px solid;
+/* Hover effect */
+.play-button:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker black on hover */
+}
+</style>
 
-       }*/
-    </style>
-</head>
-<body>
-    <br>
+<!-- JavaScript -->
+<script>
+// Close popup when clicking outside content
+document.getElementById("photoPopup").addEventListener('click', function(event) {
+    if (event.target === this) { // Ensures only clicking on the background closes the popup
+        closePhotoPopup();
+    }
+});
+function showPhotoPopup(imgurl) {
+    if (imgurl) {
+        document.getElementById("imageFrame").src = imgurl;
+        document.getElementById("photoPopup").style.display = "flex";
+    }
+}
 
-<div class="row" style="padding-left: 5%; padding-right: 5%">
-    
-{% for photo in photos %}
-    <div id="card" style="flex: 0 0 calc(50% - 1rem); min-height: 420px; text-align: right; margin-bottom: 2rem;">
-        <br>
-        
-            <div class="wrap animate pop" style="border-radius: 10px;">
-                <div class="overlay">
-                    <a href="{{ photo.get_photo_url }}" style="text-decoration: none !important; border-bottom: none;">
-                    <div class="overlay-content animate slide-left delay-2">
-                        <h1 class="animate slide-left pop delay-3">{{ photo.title }}</h1>
-                        {% if photo.category %}
-                        <p class="animate slide-left pop delay-3" style="color: white; margin-bottom: 2.5rem;">PlayList: <br> <em>{{ photo.category }}</em></p>
-                        {% endif %}
-                    </div>
-                    
-                        <div class="image-content animate slide delay-5" style="
-                            background-image: url({{ photo.photo.url }});
-                            background-size: cover;
-                            background-position: calc(50% + 10px) center; /* Shift the image to the right */
-                            -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 1) 100%);
-                            mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 1) 100%);
-                            -webkit-mask-composite: destination-in;
-                            mask-composite: intersect;
-                        "></div>
-                    
-                </div>
-            </a>
-                <div class="text">
-                    <p>{% if photo.description %}{{photo.description}} {% else %} No description {% endif %}</p>
-                </div>
-            </div>
-    </div>
-{% endfor %}
-</div>
+function closePhotoPopup() {
+    document.getElementById("photoPopup").style.display = "none";
+    document.getElementById("imageFrame").src = "";
+}
+
+</script>
+
+<br>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();

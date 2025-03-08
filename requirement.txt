@@ -11,7 +11,3 @@ slugify==0.0.1
 apscheduler==3.10.4
 django_cleanup==9.0.0
 virtualenv==20.13.0
-
-
-xhtml2pdf~=0.2.7
-pdfkit~=1.0.0

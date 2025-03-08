@@ -101,6 +101,7 @@ def youtube_video_details():
                 thumbnail_url = ""
                 for thumbnail in video["snippet"]["thumbnails"]:
                     thumbnail_url = video["snippet"]["thumbnails"][thumbnail]["url"]
+                    break
                 if not Video.objects.filter(video_id=video_id):
                     new_video = Video.objects.create(title=video["snippet"]["title"],
                                                      slug=slugify(video["snippet"]["title"]),
