@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'generic.apps.GenericConfig',
     'photo.apps.PhotoConfig',
     'audio.apps.AudioConfig',
+    'article.apps.ArticleConfig',
     'django_cleanup.apps.CleanupConfig',
 ]
 

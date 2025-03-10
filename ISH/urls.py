@@ -19,15 +19,17 @@ from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf import settings
 from django.conf.urls.static import static
-from generic.views import base
+from generic.views import base, contact
 
 urlpatterns = [
     path('', base, name="home"),
+    path('contact/', contact, name="contact"),
     path('admin/', admin.site.urls),
     path('account/', include("account.urls")),
     path('videos/', include("video.urls")),
     path('audio/', include("audio.urls")),
     path('photos/', include("photo.urls")),
+    path('articles/', include("article.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

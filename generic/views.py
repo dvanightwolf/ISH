@@ -149,6 +149,10 @@ def base(request):
     return render(request, "temp_home.html", context)
 
 
+def contact(request):
+    return render(request, "contact.html")
+
+
 def add_content(request):
     """if request.method == "POST"
         form = AddContentForm(request.POST)

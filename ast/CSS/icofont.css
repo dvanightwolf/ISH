@@ -23,7 +23,7 @@
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
-    line-height: 2;
+    line-height: 1;
     -webkit-font-feature-settings: "liga";
     -webkit-font-smoothing: antialiased
 }

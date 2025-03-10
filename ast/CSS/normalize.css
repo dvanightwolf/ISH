@@ -539,18 +539,17 @@ Preloader Area CSS
   top: 0;
   height: 100%;
   width: 100%;
-  background: #1a76d1;
   opacity: 0.8;
   z-index: -1;
 }
 /* Bread Crumbs */
 .breadcrumbs {
-  background-image: url("../img/bread-bg.jpg");
+  background-image: url("/media/photo/IMG_20250104_094128.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  padding: 120px 0px;
+  padding: 180px 0px;
 }
 .breadcrumbs .bread-inner {
   z-index: 22;
@@ -624,7 +623,7 @@ Preloader Area CSS
 }
 .pagination .pagination-list li.active a,
 .pagination .pagination-list li:hover a {
-  background: #1a76d1;
+  background: var(--secondary-color);
   color: var(--main-color);
   border-color: transparent;
 }
